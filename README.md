@@ -1,36 +1,157 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VoxAlly - AI Voice Agents Landing Page
+
+A modern, responsive Next.js website for VoxAlly, an AI voice agent platform that helps businesses close deals through intelligent voice conversations.
+
+## Features
+
+- **Responsive Design**: Mobile-first approach with breakpoints for all screen sizes
+- **Dark/Light Theme**: Toggle between themes with persistent preference
+- **Internationalization**: English and Spanish language support
+- **Modern Tech Stack**: Next.js 16, React 19, TypeScript, Tailwind CSS 4
+- **Performance Optimized**: Built with Next.js App Router for optimal performance
+- **Accessibility**: Semantic HTML and ARIA-friendly markup
+
+## Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| Framework | Next.js 16.1.3 (App Router) |
+| Language | TypeScript 5 |
+| Styling | Tailwind CSS 4 |
+| Icons | Lucide React |
+| Runtime | React 19.2.3 |
+
+## Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── contact/            # Contact page
+│   ├── pricing/            # Pricing page
+│   ├── solutions/          # Solutions page
+│   ├── globals.css         # Global styles
+│   ├── layout.tsx          # Root layout
+│   └── page.tsx            # Home page
+├── components/
+│   ├── cards/              # Card components (Feature, Pricing, Industry, etc.)
+│   ├── forms/              # Form components (ContactForm)
+│   ├── layout/             # Layout components (Navbar, Footer)
+│   ├── sections/           # Page sections (Hero, Testimonials, FAQ, etc.)
+│   └── ui/                 # UI primitives (Buttons, Headers)
+├── hooks/                  # Custom React hooks
+└── lib/                    # Utilities, constants, and context
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18.17 or later
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/voxally-landing.git
+
+# Navigate to the project
+cd voxally-landing
+
+# Install dependencies
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Build for production
+npm run build
 
-## Learn More
+# Start production server
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Linting
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run lint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Pages
 
-## Deploy on Vercel
+| Page | Route | Description |
+|------|-------|-------------|
+| Home | `/` | Main landing page with hero, features, testimonials |
+| Pricing | `/pricing` | Pricing plans and comparison table |
+| Solutions | `/solutions` | Industry-specific solutions |
+| Contact | `/contact` | Contact form and company information |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Design System
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Colors
+
+- **Background**: `#24201c` (Dark brown)
+- **Surface**: `#0c0803` (Darker brown)
+- **Primary**: `#2b7a78` (Teal)
+- **Text**: White with opacity variations
+
+### Typography
+
+- **Headings**: Raleway (Medium, 500)
+- **Body**: Inter (Regular/Medium, 400/500)
+
+### Responsive Breakpoints
+
+- **Mobile**: < 640px
+- **Tablet**: 640px - 1024px
+- **Desktop**: > 1024px
+
+## Environment Variables
+
+No environment variables are required for local development.
+
+For production, create a `.env.local` file if you need to configure:
+
+```env
+# Example (not required for basic setup)
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+```
+
+## Deployment
+
+This project can be deployed to:
+
+- **Vercel** (recommended)
+- **Netlify**
+- **AWS Amplify**
+- Any Node.js hosting provider
+
+### Deploy to Vercel
+
+```bash
+npm i -g vercel
+vercel
+```
+
+Or connect your GitHub repository directly to Vercel for automatic deployments.
+
+## License
+
+This project is proprietary. All rights reserved.
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request

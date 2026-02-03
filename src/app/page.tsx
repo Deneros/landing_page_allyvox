@@ -1,65 +1,195 @@
-import Image from "next/image";
+'use client';
+
+import { useLayout } from '@/lib/context';
+import { translations } from '@/lib/translations';
+import { images } from '@/lib/images';
+import { HeroSection } from '@/components/sections/HeroSection';
+import { SectionHeader } from '@/components/ui/SectionHeader';
+import { FeatureCard } from '@/components/cards/FeatureCard';
+import { TwoColumnSection } from '@/components/sections/TwoColumnSection';
+import { TestimonialCarousel } from '@/components/sections/TestimonialCarousel';
+import { CTAButton } from '@/components/ui/CTAButton';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 export default function Home() {
+  const { language, bgColor, altBgColor } = useLayout();
+  const t = translations[language];
+
+  // Testimonials data
+  const testimonials = [
+    {
+      quote: t?.testimonial?.quote || 'Amazing product that transformed our business.',
+      author: t?.testimonial?.author || 'Marcus Chen',
+      title: t?.testimonial?.title || 'VP Sales, TechFlow Inc',
+      avatar: images.avatarImage,
+    },
+    {
+      quote: t?.testimonial2?.quote || 'Excellent service and support. Highly recommended!',
+      author: t?.testimonial2?.author || 'John Martinez',
+      title: t?.testimonial2?.title || 'Product Manager, Digital Solutions',
+      avatar: images.avatarImage,
+    },
+    {
+      quote: t?.testimonial3?.quote || 'The best investment we made for our team this year.',
+      author: t?.testimonial3?.author || 'Emma Wilson',
+      title: t?.testimonial3?.title || 'Director, Creative Studios',
+      avatar: images.avatarImage,
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <>
+      {/* Hero Section */}
+      <HeroSection
+        title={t.hero.title}
+        description={t.hero.description}
+        imageSrc={images.placeholderImage}
+        primaryButtonText={t.hero.startTrial}
+        secondaryButtonText={t.hero.scheduleDemo}
+      />
+
+      {/* Why Section */}
+      <section className="w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: altBgColor }}>
+        <div className="w-full max-w-7xl mx-auto">
+          <ScrollReveal variant="fade-up">
+            <SectionHeader
+              tagline={t.why.tagline}
+              title={t.why.title}
+              description={t.why.description}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </ScrollReveal>
+
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+            {[
+              { title: t.why.feature1, description: t.why.feature1Desc },
+              { title: t.why.feature2, description: t.why.feature2Desc },
+              { title: t.why.feature3, description: t.why.feature3Desc },
+            ].map((feature, index) => (
+              <ScrollReveal key={index} variant="fade-up" delay={index * 150}>
+                <FeatureCard
+                  icon="✓"
+                  title={feature.title}
+                  description={feature.description}
+                  variant="default"
+                />
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: bgColor }}>
+        <div className="w-full max-w-7xl mx-auto">
+          <ScrollReveal variant="fade-up">
+            <SectionHeader
+              tagline={t.process.tagline}
+              title={t.process.title}
+              description={t.process.description}
+            />
+          </ScrollReveal>
+
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+            {[
+              { title: t.process.step1, description: t.process.step1Desc },
+              { title: t.process.step2, description: t.process.step2Desc },
+              { title: t.process.step3, description: t.process.step3Desc },
+            ].map((step, index) => (
+              <ScrollReveal key={index} variant="fade-up" delay={index * 150}>
+                <FeatureCard
+                  icon={String(index + 1)}
+                  title={step.title}
+                  description={step.description}
+                  variant="numbered"
+                />
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Built Section */}
+      <section className="w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: altBgColor }}>
+        <div className="w-full max-w-7xl mx-auto">
+          <ScrollReveal variant="fade-up">
+            <SectionHeader
+              tagline={t.built.tagline}
+              title={t.built.title}
+              description={t.built.description}
+            />
+          </ScrollReveal>
+
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+            {[
+              { icon: '⚙', title: t.built.feature1, description: t.built.feature1Desc },
+              { icon: '📱', title: t.built.feature2, description: t.built.feature2Desc },
+              { icon: '📊', title: t.built.feature3, description: t.built.feature3Desc },
+            ].map((feature, index) => (
+              <ScrollReveal key={index} variant="fade-up" delay={index * 150}>
+                <FeatureCard
+                  icon={feature.icon}
+                  title={feature.title}
+                  description={feature.description}
+                  variant="default"
+                />
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Integration Section */}
+      <section className="w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: bgColor }}>
+        <div className="w-full max-w-7xl mx-auto">
+          <ScrollReveal variant="fade-up">
+            <TwoColumnSection
+              tagline={t.integration.tagline}
+              title={t.integration.title}
+              description={t.integration.description}
+              features={[
+                t.integration.feature1,
+                t.integration.feature2,
+                t.integration.feature3,
+              ]}
+              buttonText={t.hero.startTrial}
+              imageSrc={images.placeholderImage1}
+              imagePosition="right"
+            />
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Testimonial Section */}
+      <section
+        className="w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 transition-colors duration-300"
+        style={{ backgroundColor: altBgColor }}
+      >
+        <ScrollReveal variant="scale" duration={800}>
+          <TestimonialCarousel testimonials={testimonials} autoRotateInterval={5000} />
+        </ScrollReveal>
+      </section>
+
+      {/* CTA Section */}
+      <section className="w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: bgColor }}>
+        <div className="w-full max-w-7xl mx-auto">
+          <div className="w-full max-w-4xl mx-auto text-center">
+            <ScrollReveal variant="fade-up">
+              <SectionHeader
+                title={t.cta.title}
+                description={t.cta.description}
+              />
+            </ScrollReveal>
+
+            <ScrollReveal variant="fade-up" delay={200}>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <CTAButton className="sm:px-10 sm:py-3.5 glow-hover">
+                  {t.hero.startTrial}
+                </CTAButton>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

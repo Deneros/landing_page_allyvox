@@ -1,26 +1,346 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-inter: var(--font-inter);
+  --font-raleway: var(--font-raleway);
+  --brand-color: #2b7a78;
+  --brand-color-hover: #235f5c;
+  /* Dark mode glow - subtle */
+  --glow-color: rgba(43, 122, 119, 0.6);
+  --glow-color-soft: rgba(43, 122, 119, 0.6);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Light mode - stronger, more visible glow with shadow for contrast */
+html.light {
+  --glow-color: rgba(43, 122, 120, 0.5);
+  --glow-color-soft: rgba(43, 122, 119, 0.512);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-raleway), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* ===== GLOW EFFECTS ===== */
+.glow {
+  box-shadow: 0 0 22px var(--glow-color), 0 0 34px var(--glow-color-soft);
+}
+
+.glow-soft {
+  box-shadow: 0 0 8px var(--glow-color-soft);
+}
+
+.glow-hover {
+  transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 25px var(--glow-color), 0 0 40px var(--glow-color-soft);
+}
+
+.glow-text {
+  text-shadow: 0 0 22px var(--glow-color), 0 0 34px var(--glow-color-soft);
+}
+
+.glow-border {
+  border-color: var(--brand-color);
+  box-shadow: 0 0 18px var(--glow-color-soft), inset 0 0 18px var(--glow-color-soft);
+}
+
+/* Animated glow pulse */
+.glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px var(--glow-color-soft);
+  }
+  50% {
+    box-shadow: 0 0 28px var(--glow-color), 0 0 45px var(--glow-color-soft);
+  }
+}
+
+/* ===== ANIMATION KEYFRAMES ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blurIn {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== ANIMATION UTILITY CLASSES ===== */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.6s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.6s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.7s ease-out forwards;
+}
+
+.animate-blur-in {
+  animation: blurIn 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+/* Animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+
+/* ===== CARD HOVER EFFECTS ===== */
+.card-hover {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-glow-hover {
+  transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+}
+
+.card-glow-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 55px rgba(43, 122, 119, 0.502), 0 25px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== IMAGE PLACEHOLDER STYLING ===== */
+.placeholder-image {
+  background: linear-gradient(135deg, rgba(43, 122, 120, 0.08) 0%, rgba(43, 122, 120, 0.03) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.placeholder-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.04) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* ===== GLASSMORPHISM EFFECT ===== */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ===== GRADIENT BACKGROUNDS ===== */
+.gradient-brand {
+  background: linear-gradient(135deg, var(--brand-color) 0%, #3a9997 100%);
+}
+
+.gradient-brand-soft {
+  background: linear-gradient(135deg, rgba(43, 122, 120, 0.15) 0%, rgba(58, 153, 151, 0.08) 100%);
+}
+
+/* ===== MAP PLACEHOLDER ===== */
+.map-placeholder {
+  background: linear-gradient(135deg, rgba(43, 122, 120, 0.06) 0%, rgba(43, 122, 120, 0.02) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.map-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(43, 122, 120, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43, 122, 120, 0.08) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.5;
+}
+
+/* ===== ICON CONTAINER ===== */
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  transition: all 0.5s ease;
+}
+
+.icon-container-glow:hover {
+  box-shadow: 0 0 22px var(--glow-color-soft);
+  transform: scale(1.03);
 }
