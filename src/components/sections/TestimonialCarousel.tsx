@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { Star } from 'lucide-react';
 import { useLayout } from '@/lib/context';
-import { images } from '@/lib/images';
 import { BRAND_COLOR } from '@/lib/constants';
 import type { TestimonialCarouselProps } from '../types';
 
@@ -11,7 +11,7 @@ export function TestimonialCarousel({
   testimonials,
   autoRotateInterval = 5000
 }: TestimonialCarouselProps) {
-  const { theme, textColor, mutedText, secondaryBgColor, hoverBgColor } = useLayout();
+  const { textColor, mutedText, secondaryBgColor, hoverBgColor } = useLayout();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Auto-rotate testimonials
@@ -38,18 +38,15 @@ export function TestimonialCarousel({
         {/* Testimonials */}
         <div className="text-center min-h-[400px] flex flex-col items-center justify-center">
           {/* Stars */}
-          <div
-            className="mb-8 sm:mb-10 flex justify-center"
-            style={{ filter: theme === 'light' ? 'invert(1)' : 'none' }}
-          >
-            <Image
-              src={images.stars}
-              alt="Stars"
-              width={120}
-              height={28}
-              unoptimized
-              className="h-6 sm:h-7 object-contain"
-            />
+          <div className="mb-8 sm:mb-10 flex justify-center gap-1">
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                className="w-5 h-5 sm:w-6 sm:h-6"
+                fill={BRAND_COLOR}
+                color={BRAND_COLOR}
+              />
+            ))}
           </div>
 
           {/* Quote */}

@@ -1,24 +1,19 @@
-// Figma design assets - Images stored from Figma MCP
+// Image assets - Using permanent Unsplash URLs
 export const images = {
-  placeholderImage: "https://www.figma.com/api/mcp/asset/396e9439-685a-4cf2-bb78-d2b9cc95376c",
-  placeholderImage1: "https://www.figma.com/api/mcp/asset/82f9ffad-28d5-48cb-9069-585329b47107",
-  placeholderImage2: "https://www.figma.com/api/mcp/asset/619b31dc-3d71-406a-ae9c-8f99d6194c5a",
+  // Hero/feature images - AI and technology themed
+  placeholderImage: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
+  placeholderImage1: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=600&fit=crop",
+  placeholderImage2: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
+  placeholderImage3: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600&fit=crop",
+
+  // Avatar images for testimonials
   avatarImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
-  placeholderImage3: "https://www.figma.com/api/mcp/asset/7974a08c-18f5-4517-9b71-8aad07ced5ed",
-  logoWide1: "https://www.figma.com/api/mcp/asset/344f408b-0335-441c-9ff1-0e4f0b057140",
-  logoWide2: "https://www.figma.com/api/mcp/asset/b3ef218b-5972-4e99-aa4f-3e0f05d39d2f",
-  stars: "https://www.figma.com/api/mcp/asset/15092966-bfcd-4bcd-84dd-9d61911d4d5e",
-  divider: "https://www.figma.com/api/mcp/asset/5358ebeb-f83e-4d5c-b10e-6be0d072c861",
-  logoPlaceholder1: "https://www.figma.com/api/mcp/asset/e48673bf-3c91-40a5-aeeb-3e4dbe9db8c7",
-  logoPlaceholder2: "https://www.figma.com/api/mcp/asset/f15e02c4-cbb7-43be-b84d-ff0ce9468969",
-  logoPlaceholder3: "https://www.figma.com/api/mcp/asset/78dba295-53df-4943-ab9f-af555926eb4e",
-  logoPlaceholder4: "https://www.figma.com/api/mcp/asset/38288cdf-6cb7-4bd9-83cf-80da052169e2",
-  logoPlaceholder5: "https://www.figma.com/api/mcp/asset/c1527db3-4b9c-41c4-82ca-7fc043904078",
-  logoPlaceholder6: "https://www.figma.com/api/mcp/asset/b7104cb6-a7b7-4f66-b69e-d88786db3c77",
-  chevronRight: "https://www.figma.com/api/mcp/asset/1556c7d8-31b2-4970-b435-6d62225bc954",
-  facebook: "https://www.figma.com/api/mcp/asset/e48673bf-3c91-40a5-aeeb-3e4dbe9db8c7",
-  instagram: "https://www.figma.com/api/mcp/asset/f15e02c4-cbb7-43be-b84d-ff0ce9468969",
-  x: "https://www.figma.com/api/mcp/asset/78dba295-53df-4943-ab9f-af555926eb4e",
-  linkedin: "https://www.figma.com/api/mcp/asset/38288cdf-6cb7-4bd9-83cf-80da052169e2",
-  youtube: "https://www.figma.com/api/mcp/asset/c1527db3-4b9c-41c4-82ca-7fc043904078",
+  avatarImage2: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+  avatarImage3: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+
+  // Industry images
+  healthcare: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=800&fit=crop",
+  realEstate: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=800&fit=crop",
+  ecommerce: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=800&fit=crop",
+  finance: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=800&fit=crop",
 };

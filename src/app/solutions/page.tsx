@@ -1,6 +1,7 @@
 'use client';
 
 import { translations } from '@/lib/translations';
+import { images } from '@/lib/images';
 import { useLayout } from '@/lib/context';
 import { CapabilityCard } from '@/components/cards/CapabilityCard';
 import { IndustryCard } from '@/components/cards/IndustryCard';
@@ -15,6 +16,7 @@ export default function SolutionsPage() {
     {
       id: 'healthcare',
       icon: '🏥',
+      image: images.healthcare,
       title: language === 'en' ? 'Healthcare' : 'Salud',
       heading: language === 'en'
         ? 'Appointments scheduled, patients reminded, records secure'
@@ -46,6 +48,7 @@ export default function SolutionsPage() {
     {
       id: 'realestate',
       icon: '🏠',
+      image: images.realEstate,
       title: language === 'en' ? 'Real Estate' : 'Bienes Raíces',
       heading: language === 'en'
         ? 'Leads qualified, tours booked, deals moving forward'
@@ -77,6 +80,7 @@ export default function SolutionsPage() {
     {
       id: 'ecommerce',
       icon: '🛒',
+      image: images.ecommerce,
       title: language === 'en' ? 'E-commerce' : 'E-commerce',
       heading: language === 'en'
         ? 'Orders placed, returns handled, customers supported'
@@ -108,6 +112,7 @@ export default function SolutionsPage() {
     {
       id: 'finance',
       icon: '💼',
+      image: images.finance,
       title: language === 'en' ? 'Finance' : 'Finanzas',
       heading: language === 'en'
         ? 'Inquiries answered, documents collected, compliance maintained'

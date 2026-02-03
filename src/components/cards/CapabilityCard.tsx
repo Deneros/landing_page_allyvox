@@ -1,7 +1,7 @@
 'use client';
 
 import { useLayout } from '@/lib/context';
-import { useHover } from '@/components/hooks/useHover';
+import { useHover } from '@/hooks';
 import type { CapabilityCardProps } from '../types';
 
 export function CapabilityCard({ icon, title, description }: CapabilityCardProps) {

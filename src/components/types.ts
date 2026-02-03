@@ -35,6 +35,7 @@ export interface IndustryCardProps {
   industry: {
     id: string;
     icon: string;
+    image?: string;
     title: string;
     heading: string;
     description: string;

@@ -16,6 +16,72 @@ html.light {
   --glow-color-soft: rgba(43, 122, 119, 0.512);
 }
 
+/* ===== THEME-AWARE CSS VARIABLES ===== */
+/* Dark theme (default) */
+html, html.dark {
+  --theme-bg: #24201c;
+  --theme-bg-alt: #1a1410;
+  --theme-surface: rgba(255, 255, 255, 0.05);
+  --theme-surface-hover: rgba(255, 255, 255, 0.1);
+  --theme-text: #ffffff;
+  --theme-text-muted: rgba(255, 255, 255, 0.7);
+  --theme-border: rgba(255, 255, 255, 0.2);
+  --theme-input-bg: #1a1410;
+  --theme-input-border: rgba(255, 255, 255, 0.15);
+}
+
+/* Light theme */
+html.light {
+  --theme-bg: #faf8f5;
+  --theme-bg-alt: #f0ece6;
+  --theme-surface: rgba(43, 122, 120, 0.06);
+  --theme-surface-hover: rgba(43, 122, 120, 0.1);
+  --theme-text: #1a1a1a;
+  --theme-text-muted: #5a5a5a;
+  --theme-border: rgba(43, 122, 120, 0.2);
+  --theme-input-bg: #ffffff;
+  --theme-input-border: rgba(0, 0, 0, 0.15);
+}
+
+/* ===== THEME-AWARE UTILITY CLASSES ===== */
+.bg-theme { background-color: var(--theme-bg); }
+.bg-theme-alt { background-color: var(--theme-bg-alt); }
+.bg-theme-surface { background-color: var(--theme-surface); }
+.bg-theme-surface-hover { background-color: var(--theme-surface-hover); }
+
+.text-theme { color: var(--theme-text); }
+.text-theme-muted { color: var(--theme-text-muted); }
+
+.border-theme { border-color: var(--theme-border); }
+
+/* Interactive theme utilities */
+.hover\:bg-theme-surface:hover { background-color: var(--theme-surface); }
+.hover\:bg-theme-surface-hover:hover { background-color: var(--theme-surface-hover); }
+
+/* Form input styling */
+.input-theme {
+  background-color: var(--theme-input-bg);
+  border-color: var(--theme-input-border);
+  color: var(--theme-text);
+}
+
+.input-theme:focus {
+  border-color: var(--brand-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(43, 122, 120, 0.2);
+}
+
+/* Card with theme-aware background */
+.card-theme {
+  background-color: var(--theme-surface);
+  border: 1px solid var(--theme-border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.card-theme:hover {
+  background-color: var(--theme-surface-hover);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -33,41 +99,42 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ===== GLOW EFFECTS ===== */
 .glow {
-  box-shadow: 0 0 22px var(--glow-color), 0 0 34px var(--glow-color-soft);
+  box-shadow: 0 0 5px #fff, 0 0 20px var(--glow-color), 0 0 40px var(--glow-color-soft);
 }
 
 .glow-soft {
-  box-shadow: 0 0 8px var(--glow-color-soft);
+  box-shadow: 0 0 15px var(--glow-color-soft);
 }
 
 .glow-hover {
-  transition: box-shadow 0.5s ease, transform 0.5s ease;
+  transition: box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s ease;
 }
 
 .glow-hover:hover {
-  box-shadow: 0 0 25px var(--glow-color), 0 0 40px var(--glow-color-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px #fff, 0 0 30px var(--glow-color), 0 0 50px var(--glow-color-soft);
 }
 
 .glow-text {
-  text-shadow: 0 0 22px var(--glow-color), 0 0 34px var(--glow-color-soft);
+  text-shadow: 0 0 8px #fff, 0 0 18px var(--glow-color), 0 0 30px var(--glow-color-soft);
 }
 
 .glow-border {
-  border-color: var(--brand-color);
-  box-shadow: 0 0 18px var(--glow-color-soft), inset 0 0 18px var(--glow-color-soft);
+  border: 1px solid var(--brand-color);
+  box-shadow: 0 0 15px var(--glow-color-soft), inset 0 0 10px var(--glow-color-soft);
 }
 
 /* Animated glow pulse */
 .glow-pulse {
-  animation: glowPulse 3s ease-in-out infinite;
+  animation: glowPulse 2.5s ease-in-out infinite;
 }
 
 @keyframes glowPulse {
   0%, 100% {
-    box-shadow: 0 0 10px var(--glow-color-soft);
+    box-shadow: 0 0 15px var(--glow-color-soft);
   }
   50% {
-    box-shadow: 0 0 28px var(--glow-color), 0 0 45px var(--glow-color-soft);
+    box-shadow: 0 0 10px #fff, 0 0 30px var(--glow-color), 0 0 55px var(--glow-color-soft);
   }
 }
 

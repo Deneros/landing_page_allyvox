@@ -1,11 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useLayout } from '@/lib/context';
 import { translations } from '@/lib/translations';
-import { images } from '@/lib/images';
+import { BRAND_COLOR } from '@/lib/constants';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSelector } from './LanguageSelector';
 import { ResourcesDropdown } from './ResourcesDropdown';
@@ -28,16 +27,11 @@ export function Navbar() {
         <div className="flex items-center gap-4 lg:gap-8 flex-1">
           <Link
             href="/"
-            className="h-8 w-24 relative flex-shrink-0"
-            style={{ filter: theme === 'light' ? 'invert(1)' : 'none' }}
+            className="flex-shrink-0 text-xl font-bold tracking-tight"
+            style={{ fontFamily: 'Raleway' }}
           >
-            <Image
-              src={images.logoWide2}
-              alt="AllyVox Logo"
-              fill
-              unoptimized
-              className="w-full h-full object-contain"
-            />
+            <span style={{ color: BRAND_COLOR }}>Ally</span>
+            <span>Vox</span>
           </Link>
 
           {/* Desktop Navigation */}

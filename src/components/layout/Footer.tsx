@@ -1,15 +1,14 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useLayout } from '@/lib/context';
 import { translations } from '@/lib/translations';
-import { images } from '@/lib/images';
+import { BRAND_COLOR } from '@/lib/constants';
 import { NewsletterSection } from '@/components/sections/NewsletterSection';
 import { SocialLinks } from '@/components/sections/SocialLinks';
 
 export function Footer() {
-  const { language, theme, altBgColor, borderColor, textColor, mutedText } = useLayout();
+  const { language, altBgColor, borderColor, textColor, mutedText } = useLayout();
   const t = translations[language];
 
   return (
@@ -25,16 +24,11 @@ export function Footer() {
         <div className="mb-8 sm:mb-12">
           <Link
             href="/"
-            className="h-8 w-24 relative block"
-            style={{ filter: theme === 'light' ? 'invert(1)' : 'none' }}
+            className="text-2xl font-bold tracking-tight inline-block"
+            style={{ fontFamily: 'Raleway' }}
           >
-            <Image
-              src={images.logoWide2}
-              alt="VoxAlly"
-              fill
-              unoptimized
-              className="w-full h-full object-contain"
-            />
+            <span style={{ color: BRAND_COLOR }}>Ally</span>
+            <span>Vox</span>
           </Link>
         </div>
 

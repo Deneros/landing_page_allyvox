@@ -1,25 +1,44 @@
 'use client';
 
+import Image from 'next/image';
 import { useLayout } from '@/lib/context';
 import type { IndustryCardProps } from '../types';
 
 export function IndustryCard({ industry, index }: IndustryCardProps) {
-  const { textColor, mutedText, secondaryBgColor, borderColor } = useLayout();
+  const { textColor, mutedText, secondaryBgColor, borderColor, hoverBgColor } = useLayout();
 
   const isEven = index % 2 === 0;
 
   return (
     <div className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center ${!isEven ? 'md:flex-row-reverse' : ''}`}>
-      {/* Icon/Title Section */}
+      {/* Image/Title Section */}
       <div className={`${!isEven ? 'md:order-2' : ''}`}>
         <div
-          className="w-20 h-20 mb-6 flex items-center justify-center text-4xl rounded-xl"
-          style={{ backgroundColor: secondaryBgColor }}
+          className="w-full rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:scale-105 mb-6"
+          style={{
+            boxShadow: '0 10px 40px rgba(43, 122, 120, 0.2)',
+            minHeight: '400px',
+          }}
         >
-          {industry.icon}
+          {industry.image ? (
+            <Image
+              src={industry.image}
+              alt={industry.title}
+              width={500}
+              height={500}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          ) : (
+            <div
+              className="w-full h-full flex items-center justify-center text-6xl"
+              style={{ backgroundColor: secondaryBgColor }}
+            >
+              {industry.icon}
+            </div>
+          )}
         </div>
         <h3
-          className="text-2xl sm:text-3xl font-semibold mb-4"
+          className="text-2xl sm:text-3xl font-semibold"
           style={{ color: textColor }}
         >
           {industry.title}
@@ -44,10 +63,18 @@ export function IndustryCard({ industry, index }: IndustryCardProps) {
           {industry.features.map((feature, idx) => (
             <div
               key={idx}
-              className="p-4 rounded-lg border"
+              className="p-4 rounded-lg border cursor-pointer transition-all duration-300 hover:translate-x-2 hover:shadow-md"
               style={{
                 backgroundColor: secondaryBgColor,
                 borderColor,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = hoverBgColor;
+                e.currentTarget.style.borderColor = '#2b7a78';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = secondaryBgColor;
+                e.currentTarget.style.borderColor = borderColor;
               }}
             >
               <h5 className="font-semibold mb-1" style={{ color: textColor }}>
