@@ -9,6 +9,7 @@ import { FeatureCard } from '@/components/cards/FeatureCard';
 import { TwoColumnSection } from '@/components/sections/TwoColumnSection';
 import { TestimonialCarousel } from '@/components/sections/TestimonialCarousel';
 import { CTAButton } from '@/components/ui/CTAButton';
+import { DotPattern } from '@/components/ui/DotPattern';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 export default function Home() {
@@ -49,8 +50,9 @@ export default function Home() {
       />
 
       {/* Why Section */}
-      <section className="w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: altBgColor }}>
-        <div className="w-full max-w-7xl mx-auto">
+      <section className="relative isolate w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: altBgColor }}>
+        <DotPattern color="#302289" accentColor="#9138d5" spacing={20} opacity={0.45} />
+        <div className="relative z-10 w-full max-w-7xl mx-auto">
           <ScrollReveal variant="fade-up">
             <SectionHeader
               tagline={t.why.tagline}
@@ -161,17 +163,21 @@ export default function Home() {
 
       {/* Testimonial Section */}
       <section
-        className="w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 transition-colors duration-300"
+        className="relative isolate w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 transition-colors duration-300 overflow-hidden"
         style={{ backgroundColor: altBgColor }}
       >
-        <ScrollReveal variant="scale" duration={800}>
-          <TestimonialCarousel testimonials={testimonials} autoRotateInterval={5000} />
-        </ScrollReveal>
+        <DotPattern color="#9138d5" accentColor="#2e8dff" spacing={22} opacity={0.35} />
+        <div className="relative z-10">
+          <ScrollReveal variant="scale" duration={800}>
+            <TestimonialCarousel testimonials={testimonials} autoRotateInterval={5000} />
+          </ScrollReveal>
+        </div>
       </section>
 
       {/* CTA Section */}
-      <section className="w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: bgColor }}>
-        <div className="w-full max-w-7xl mx-auto">
+      <section className="relative isolate w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: bgColor }}>
+        <DotPattern color="#302289" accentColor="#76f6f5" spacing={16} opacity={0.7} />
+        <div className="relative z-10 w-full max-w-7xl mx-auto">
           <div className="w-full max-w-4xl mx-auto text-center">
             <ScrollReveal variant="fade-up">
               <SectionHeader

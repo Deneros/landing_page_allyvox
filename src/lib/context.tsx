@@ -55,15 +55,14 @@ export function LayoutProvider({ children }: { children: ReactNode }) {
     localStorage.setItem('language', state.language);
   }, [state.language]);
 
-  // Compute colors based on theme
-  // Light mode: warm off-white tones with better contrast
-  const bgColor = state.theme === 'dark' ? '#24201c' : '#faf8f5';
-  const altBgColor = state.theme === 'dark' ? '#1a1410' : '#f0ece6';
-  const textColor = state.theme === 'dark' ? '#ffffff' : '#1a1a1a';
-  const mutedText = state.theme === 'dark' ? 'rgba(255,255,255,0.7)' : '#5a5a5a';
-  const borderColor = state.theme === 'dark' ? 'rgba(255,255,255,0.2)' : 'rgba(43, 122, 120, 0.2)';
-  const secondaryBgColor = state.theme === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(43, 122, 120, 0.06)';
-  const hoverBgColor = state.theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(43, 122, 120, 0.1)';
+  // Compute colors based on theme — VoxAlly brand palette
+  const bgColor = state.theme === 'dark' ? '#0d0a1e' : '#f0eafe';
+  const altBgColor = state.theme === 'dark' ? '#080615' : '#e5dcfb';
+  const textColor = state.theme === 'dark' ? '#ffffff' : '#0d0a1e';
+  const mutedText = state.theme === 'dark' ? 'rgba(255,255,255,0.65)' : '#3d3568';
+  const borderColor = state.theme === 'dark' ? 'rgba(145, 56, 213, 0.25)' : 'rgba(48, 34, 137, 0.22)';
+  const secondaryBgColor = state.theme === 'dark' ? 'rgba(145, 56, 213, 0.08)' : 'rgba(48, 34, 137, 0.09)';
+  const hoverBgColor = state.theme === 'dark' ? 'rgba(145, 56, 213, 0.15)' : 'rgba(48, 34, 137, 0.16)';
 
   return (
     <LayoutContext.Provider

@@ -8,6 +8,7 @@ import { FAQAccordion } from '@/components/sections/FAQAccordion';
 import { ContactInfoCard } from '@/components/cards/ContactInfoCard';
 import { TestimonialSection } from '@/components/sections/TestimonialSection';
 import { CTAButton } from '@/components/ui/CTAButton';
+import { DotPattern } from '@/components/ui/DotPattern';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { useState } from 'react';
 import { MapPin } from 'lucide-react';
@@ -37,10 +38,11 @@ export default function ContactPage() {
     <div style={{ backgroundColor: bgColor }}>
       {/* Hero Section */}
       <section
-        className="w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8"
+        className="relative isolate w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
         style={{ backgroundColor: bgColor }}
       >
-        <div className="w-full max-w-4xl mx-auto text-center">
+        <DotPattern color="#302289" accentColor="#9138d5" spacing={18} opacity={0.55} />
+        <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
           <ScrollReveal variant="fade-up">
             <p
               className="text-sm font-medium mb-4"
@@ -84,6 +86,8 @@ export default function ContactPage() {
                   backgroundColor: 'transparent',
                   color: textColor,
                   border: `1px solid ${theme === 'dark' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)'}`,
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
                 }}
               >
                 {t.heroSecondaryCTA}
@@ -95,10 +99,11 @@ export default function ContactPage() {
 
       {/* Transform Section */}
       <section
-        className="w-full py-20 px-4 sm:px-6 lg:px-8"
+        className="relative isolate w-full py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
         style={{ backgroundColor: altBgColor }}
       >
-        <div className="w-full max-w-4xl mx-auto text-center">
+        <DotPattern color="#9138d5" accentColor="#76f6f5" spacing={20} opacity={0.45} />
+        <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
           <ScrollReveal variant="fade-up">
             <h2
               className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 whitespace-pre-line"
@@ -256,10 +261,11 @@ export default function ContactPage() {
 
       {/* Need More Help Section */}
       <section
-        className="w-full py-20 px-4 sm:px-6 lg:px-8"
+        className="relative isolate w-full py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
         style={{ backgroundColor: altBgColor }}
       >
-        <div className="w-full max-w-4xl mx-auto text-center">
+        <DotPattern color="#302289" accentColor="#76f6f5" spacing={16} opacity={0.6} />
+        <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
           <ScrollReveal variant="fade-up">
             <h2
               className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4"

@@ -8,6 +8,7 @@ import { PricingCard } from '@/components/cards/PricingCard';
 import { ComparisonTable, ComparisonRow } from '@/components/sections/ComparisonTable';
 import { TestimonialSection } from '@/components/sections/TestimonialSection';
 import { CTAButton } from '@/components/ui/CTAButton';
+import { DotPattern } from '@/components/ui/DotPattern';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 export default function PricingPage() {
@@ -61,16 +62,9 @@ export default function PricingPage() {
   return (
     <div style={{ backgroundColor: bgColor }}>
       {/* Hero Section */}
-      <section className="w-full py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-4xl mx-auto text-center">
-          <ScrollReveal variant="fade-up">
-            <p
-              className="text-sm font-medium tracking-wider mb-4"
-              style={{ color: mutedText }}
-            >
-              {t.heroLabel}
-            </p>
-          </ScrollReveal>
+      <section className="relative isolate w-full py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <DotPattern color="#302289" accentColor="#9138d5" spacing={18} opacity={0.55} />
+        <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
           <ScrollReveal variant="fade-up" delay={100}>
             <h1
               className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight"
@@ -97,19 +91,14 @@ export default function PricingPage() {
 
       {/* Pricing Cards Section */}
       <section
-        className="py-20 px-4 sm:px-6 lg:px-8"
+        className="relative isolate py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
         style={{ backgroundColor: altBgColor }}
       >
-        <div className="w-full max-w-7xl mx-auto">
+        <DotPattern color="#9138d5" accentColor="#2e8dff" spacing={20} opacity={0.4} />
+        <div className="relative z-10 w-full max-w-7xl mx-auto">
           {/* Section Header */}
           <ScrollReveal variant="fade-up">
             <div className="text-center mb-10">
-              <p
-                className="text-sm font-medium tracking-wider mb-4"
-                style={{ color: mutedText }}
-              >
-                {t.pricingLabel}
-              </p>
               <h2
                 className="text-3xl sm:text-4xl font-bold mb-4"
                 style={{ color: textColor, fontFamily: 'Raleway' }}
@@ -203,12 +192,6 @@ export default function PricingPage() {
           {/* Section Header */}
           <ScrollReveal variant="fade-up">
             <div className="text-center mb-10">
-              <p
-                className="text-sm font-medium tracking-wider mb-4"
-                style={{ color: mutedText }}
-              >
-                {t.comparisonLabel}
-              </p>
               <h2
                 className="text-3xl sm:text-4xl font-bold mb-4"
                 style={{ color: textColor, fontFamily: 'Raleway' }}
@@ -252,10 +235,11 @@ export default function PricingPage() {
 
       {/* CTA Section */}
       <section
-        className="py-20 px-4 sm:px-6 lg:px-8"
+        className="relative isolate py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
         style={{ backgroundColor: bgColor }}
       >
-        <div className="w-full max-w-4xl mx-auto text-center">
+        <DotPattern color="#302289" accentColor="#76f6f5" spacing={16} opacity={0.65} />
+        <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
           <ScrollReveal variant="fade-up">
             <h2
               className="text-3xl sm:text-4xl font-bold mb-6 whitespace-pre-line"

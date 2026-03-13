@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLayout } from '@/lib/context';
 import { translations } from '@/lib/translations';
-import { BRAND_COLOR } from '@/lib/constants';
 import { NewsletterSection } from '@/components/sections/NewsletterSection';
 import { SocialLinks } from '@/components/sections/SocialLinks';
 
@@ -22,13 +22,14 @@ export function Footer() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
         {/* Logo Section */}
         <div className="mb-8 sm:mb-12">
-          <Link
-            href="/"
-            className="text-2xl font-bold tracking-tight inline-block"
-            style={{ fontFamily: 'Raleway' }}
-          >
-            <span style={{ color: BRAND_COLOR }}>Ally</span>
-            <span>Vox</span>
+          <Link href="/">
+            <Image
+              src="/logo-allyvox.svg"
+              alt="AllyVox Logo"
+              width={128}
+              height={57}
+              className="w-auto h-8"
+            />
           </Link>
         </div>
 
@@ -52,7 +53,7 @@ export function Footer() {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-sm sm:text-base transition-colors duration-200 hover:text-[#2b7a78]"
+                    className="text-sm sm:text-base transition-colors duration-200 hover:text-[#9138d5]"
                     style={{ color: mutedText }}
                   >
                     {link.label}
@@ -76,7 +77,7 @@ export function Footer() {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-sm sm:text-base transition-colors duration-200 hover:text-[#2b7a78]"
+                    className="text-sm sm:text-base transition-colors duration-200 hover:text-[#9138d5]"
                     style={{ color: mutedText }}
                   >
                     {link.label}
@@ -100,7 +101,7 @@ export function Footer() {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-sm sm:text-base transition-colors duration-200 hover:text-[#2b7a78]"
+                    className="text-sm sm:text-base transition-colors duration-200 hover:text-[#9138d5]"
                     style={{ color: mutedText }}
                   >
                     {link.label}

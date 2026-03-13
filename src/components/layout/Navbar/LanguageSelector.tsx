@@ -13,7 +13,7 @@ export function LanguageSelector() {
       <button
         onClick={() => setLanguage('es')}
         className={`px-3 lg:px-5 py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 ${
-          language === 'es' ? 'bg-[#2b7a78] text-white' : 'border'
+          language === 'es' ? 'bg-[#302289] text-white' : 'border'
         }`}
         style={
           language === 'es'
@@ -36,7 +36,7 @@ export function LanguageSelector() {
       <button
         onClick={() => setLanguage('en')}
         className={`px-3 lg:px-5 py-2 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 ${
-          language === 'en' ? 'bg-[#2b7a78] text-white' : 'border'
+          language === 'en' ? 'bg-[#302289] text-white' : 'border'
         }`}
         style={
           language === 'en'

@@ -5,6 +5,7 @@ import { useLayout } from '@/lib/context';
 import { CTAButton } from '@/components/ui/CTAButton';
 import { SecondaryButton } from '@/components/ui/SecondaryButton';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { DotPattern } from '@/components/ui/DotPattern';
 import type { HeroSectionProps } from '../types';
 
 export function HeroSection({
@@ -17,8 +18,9 @@ export function HeroSection({
   const { bgColor, textColor, mutedText } = useLayout();
 
   return (
-    <section className="w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: bgColor }}>
-      <div className="w-full max-w-7xl mx-auto">
+    <section className="relative isolate w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: bgColor }}>
+      <DotPattern className="opacity-60" />
+      <div className="relative z-10 w-full max-w-7xl mx-auto">
         <div className={`${imageSrc ? 'grid md:grid-cols-2 gap-12 md:gap-16 items-center' : 'max-w-3xl mx-auto text-center'}`}>
           {/* Text Content */}
           <div className={imageSrc ? '' : 'mb-12 sm:mb-16'}>

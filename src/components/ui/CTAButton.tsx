@@ -1,6 +1,6 @@
 'use client';
 
-import { BRAND_COLOR, BRAND_COLOR_HOVER } from '@/lib/constants';
+import { BRAND_COLOR, BRAND_COLOR_ACCENT, BRAND_COLOR_HOVER } from '@/lib/constants';
 import type { CTAButtonProps } from '../types';
 
 export function CTAButton({
@@ -16,13 +16,13 @@ export function CTAButton({
       className={`px-8 py-3 text-white rounded-lg text-base font-medium glow-hover
                   transition-all duration-500 transform hover:scale-[1.03] active:scale-[0.98] ${className}`}
       style={{
-        backgroundColor: BRAND_COLOR,
+        background: `linear-gradient(135deg, ${BRAND_COLOR} 0%, ${BRAND_COLOR_ACCENT} 100%)`,
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = BRAND_COLOR_HOVER;
+        e.currentTarget.style.background = `linear-gradient(135deg, ${BRAND_COLOR_HOVER} 0%, ${BRAND_COLOR} 100%)`;
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = BRAND_COLOR;
+        e.currentTarget.style.background = `linear-gradient(135deg, ${BRAND_COLOR} 0%, ${BRAND_COLOR_ACCENT} 100%)`;
       }}
     >
       {children}

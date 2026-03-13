@@ -21,6 +21,8 @@ export function SecondaryButton({
         borderColor,
         backgroundColor: isHovered.backgroundColor,
         color: textColor,
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
       }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

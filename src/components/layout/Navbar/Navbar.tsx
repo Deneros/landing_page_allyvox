@@ -2,16 +2,16 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLayout } from '@/lib/context';
 import { translations } from '@/lib/translations';
-import { BRAND_COLOR } from '@/lib/constants';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSelector } from './LanguageSelector';
 import { ResourcesDropdown } from './ResourcesDropdown';
 import { MobileMenu } from './MobileMenu';
 
 export function Navbar() {
-  const { language, theme, bgColor, borderColor, secondaryBgColor, hoverBgColor } = useLayout();
+  const { language, bgColor, borderColor, secondaryBgColor, hoverBgColor } = useLayout();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
 
@@ -25,32 +25,34 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between">
         {/* Logo and Navigation */}
         <div className="flex items-center gap-4 lg:gap-8 flex-1">
-          <Link
-            href="/"
-            className="flex-shrink-0 text-xl font-bold tracking-tight"
-            style={{ fontFamily: 'Raleway' }}
-          >
-            <span style={{ color: BRAND_COLOR }}>Ally</span>
-            <span>Vox</span>
+          <Link href="/" className="shrink-0">
+            <Image
+              src="/logo-allyvox.svg"
+              alt="AllyVox Logo"
+              width={160}
+              height={72}
+              priority
+              className="w-auto h-10"
+            />
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex gap-8 items-center">
             <a
               href="/solutions"
-              className="text-base font-medium transition-all duration-200 hover:text-[#2b7a78]"
+              className="text-base font-medium transition-all duration-200 hover:text-[#9138d5]"
             >
               {t.nav.solutions}
             </a>
             <a
               href="/pricing"
-              className="text-base font-medium transition-all duration-200 hover:text-[#2b7a78]"
+              className="text-base font-medium transition-all duration-200 hover:text-[#9138d5]"
             >
               {t.nav.pricing}
             </a>
             <a
               href="/contact"
-              className="text-base font-medium transition-all duration-200 hover:text-[#2b7a78]"
+              className="text-base font-medium transition-all duration-200 hover:text-[#9138d5]"
             >
               {t.nav.contact}
             </a>

@@ -1,19 +1,21 @@
 'use client';
 
-import { Geist, Geist_Mono } from "next/font/google";
+import { Raleway, Montserrat } from "next/font/google";
 import { LayoutProvider, useLayout } from "@/lib/context";
 import { Navbar } from "@/components/layout/Navbar/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const raleway = Raleway({
+  variable: "--font-raleway",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 function LayoutContent({ children }: { children: React.ReactNode }) {
@@ -41,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${raleway.variable} ${montserrat.variable} antialiased`}>
         <LayoutProvider>
           <LayoutContent>{children}</LayoutContent>
         </LayoutProvider>

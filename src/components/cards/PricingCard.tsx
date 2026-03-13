@@ -107,6 +107,8 @@ export function PricingCard({
           backgroundColor: isHighlighted ? BRAND_COLOR : 'transparent',
           color: isHighlighted ? 'white' : BRAND_COLOR,
           border: isHighlighted ? 'none' : `2px solid ${BRAND_COLOR}`,
+          backdropFilter: isHighlighted ? 'none' : 'blur(12px)',
+          WebkitBackdropFilter: isHighlighted ? 'none' : 'blur(12px)',
         }}
         onMouseEnter={(e) => {
           if (isHighlighted) {

@@ -16,7 +16,7 @@ export function IndustryCard({ industry, index }: IndustryCardProps) {
         <div
           className="w-full rounded-2xl overflow-hidden group cursor-pointer transition-all duration-500 hover:scale-105 mb-6"
           style={{
-            boxShadow: '0 10px 40px rgba(43, 122, 120, 0.2)',
+            boxShadow: '0 10px 40px rgba(145, 56, 213, 0.2)',
             minHeight: '400px',
           }}
         >
@@ -67,10 +67,12 @@ export function IndustryCard({ industry, index }: IndustryCardProps) {
               style={{
                 backgroundColor: secondaryBgColor,
                 borderColor,
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = hoverBgColor;
-                e.currentTarget.style.borderColor = '#2b7a78';
+                e.currentTarget.style.borderColor = '#9138d5';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = secondaryBgColor;

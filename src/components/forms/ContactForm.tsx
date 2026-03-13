@@ -48,7 +48,7 @@ export function ContactForm({ labels }: ContactFormProps) {
             <input
               type="text"
               placeholder={labels.firstNamePlaceholder}
-              className="w-full h-12 px-4 rounded-lg text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#2b7a78]"
+              className="w-full h-12 px-4 rounded-lg text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#9138d5]"
               style={{
                 backgroundColor: inputBg,
                 border: `1px solid ${inputBorder}`,
@@ -66,7 +66,7 @@ export function ContactForm({ labels }: ContactFormProps) {
             <input
               type="text"
               placeholder={labels.lastNamePlaceholder}
-              className="w-full h-12 px-4 rounded-lg text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#2b7a78]"
+              className="w-full h-12 px-4 rounded-lg text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#9138d5]"
               style={{
                 backgroundColor: inputBg,
                 border: `1px solid ${inputBorder}`,
@@ -87,7 +87,7 @@ export function ContactForm({ labels }: ContactFormProps) {
           <input
             type="email"
             placeholder={labels.emailPlaceholder}
-            className="w-full h-12 px-4 rounded-lg text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#2b7a78]"
+            className="w-full h-12 px-4 rounded-lg text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#9138d5]"
             style={{
               backgroundColor: inputBg,
               border: `1px solid ${inputBorder}`,
@@ -107,7 +107,7 @@ export function ContactForm({ labels }: ContactFormProps) {
           <input
             type="tel"
             placeholder={labels.phonePlaceholder}
-            className="w-full h-12 px-4 rounded-lg text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#2b7a78]"
+            className="w-full h-12 px-4 rounded-lg text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#9138d5]"
             style={{
               backgroundColor: inputBg,
               border: `1px solid ${inputBorder}`,
@@ -127,7 +127,7 @@ export function ContactForm({ labels }: ContactFormProps) {
           <textarea
             placeholder={labels.messagePlaceholder}
             rows={4}
-            className="w-full px-4 py-3 rounded-lg text-sm transition-colors duration-200 resize-none focus:outline-none focus:ring-2 focus:ring-[#2b7a78]"
+            className="w-full px-4 py-3 rounded-lg text-sm transition-colors duration-200 resize-none focus:outline-none focus:ring-2 focus:ring-[#9138d5]"
             style={{
               backgroundColor: inputBg,
               border: `1px solid ${inputBorder}`,

@@ -6,6 +6,7 @@ import { useLayout } from '@/lib/context';
 import { CapabilityCard } from '@/components/cards/CapabilityCard';
 import { IndustryCard } from '@/components/cards/IndustryCard';
 import { CTAButton } from '@/components/ui/CTAButton';
+import { DotPattern } from '@/components/ui/DotPattern';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 export default function SolutionsPage() {
@@ -146,8 +147,9 @@ export default function SolutionsPage() {
   return (
     <div style={{ backgroundColor: bgColor }}>
       {/* Hero Section */}
-      <section className="w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-4xl mx-auto text-center">
+      <section className="relative isolate w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <DotPattern color="#302289" accentColor="#9138d5" spacing={18} opacity={0.55} />
+        <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
           <ScrollReveal variant="fade-up">
             <h1
               className="text-5xl sm:text-6xl font-bold mb-6 tracking-tight"
@@ -176,12 +178,13 @@ export default function SolutionsPage() {
 
       {/* Capabilities Section */}
       <section
-        className="py-32 px-4 sm:px-6 lg:px-8"
+        className="relative isolate py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
         style={{
           backgroundColor: altBgColor,
         }}
       >
-        <div className="w-full max-w-7xl mx-auto">
+        <DotPattern color="#9138d5" accentColor="#2e8dff" spacing={20} opacity={0.4} />
+        <div className="relative z-10 w-full max-w-7xl mx-auto">
           <ScrollReveal variant="fade-up">
             <div className="max-w-3xl mx-auto text-center mb-16">
               <h2
@@ -288,12 +291,13 @@ export default function SolutionsPage() {
 
       {/* CTA Section */}
       <section
-        className="py-32 px-4 sm:px-6 lg:px-8"
+        className="relative isolate py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
         style={{
           backgroundColor: altBgColor,
         }}
       >
-        <div className="w-full max-w-4xl mx-auto text-center">
+        <DotPattern color="#302289" accentColor="#76f6f5" spacing={16} opacity={0.65} />
+        <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
           <ScrollReveal variant="fade-up">
             <h2
               className="text-4xl sm:text-5xl font-bold mb-6"
