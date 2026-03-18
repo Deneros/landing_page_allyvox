@@ -22,19 +22,19 @@ export default function Home() {
       quote: t?.testimonial?.quote || 'Amazing product that transformed our business.',
       author: t?.testimonial?.author || 'Marcus Chen',
       title: t?.testimonial?.title || 'VP Sales, TechFlow Inc',
-      avatar: images.avatarImage,
+      avatar: images.avatarMarcusChen,
     },
     {
       quote: t?.testimonial2?.quote || 'Excellent service and support. Highly recommended!',
       author: t?.testimonial2?.author || 'John Martinez',
       title: t?.testimonial2?.title || 'Product Manager, Digital Solutions',
-      avatar: images.avatarImage,
+      avatar: images.avatarJohnMartinez,
     },
     {
       quote: t?.testimonial3?.quote || 'The best investment we made for our team this year.',
       author: t?.testimonial3?.author || 'Emma Wilson',
       title: t?.testimonial3?.title || 'Director, Creative Studios',
-      avatar: images.avatarImage,
+      avatar: images.avatarEmmaWilson,
     },
   ];
 

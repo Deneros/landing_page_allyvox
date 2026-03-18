@@ -3,6 +3,7 @@
 import { translations } from '@/lib/translations';
 import { useLayout } from '@/lib/context';
 import { BRAND_COLOR, BRAND_COLOR_HOVER } from '@/lib/constants';
+import { images } from '@/lib/images';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { FAQAccordion } from '@/components/sections/FAQAccordion';
 import { ContactInfoCard } from '@/components/cards/ContactInfoCard';
@@ -14,7 +15,7 @@ import { useState } from 'react';
 import { MapPin } from 'lucide-react';
 
 export default function ContactPage() {
-  const { language, theme, bgColor, altBgColor, textColor, mutedText } = useLayout();
+  const { language, bgColor, altBgColor, textColor, mutedText } = useLayout();
   const t = translations[language].contactPage;
 
   const [transformHovered, setTransformHovered] = useState(false);
@@ -85,7 +86,7 @@ export default function ContactPage() {
                 style={{
                   backgroundColor: 'transparent',
                   color: textColor,
-                  border: `1px solid ${theme === 'dark' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)'}`,
+                  border: '1px solid rgba(255,255,255,0.2)',
                   backdropFilter: 'blur(12px)',
                   WebkitBackdropFilter: 'blur(12px)',
                 }}
@@ -217,6 +218,7 @@ export default function ContactPage() {
           quote={t.testimonialQuote}
           authorName={t.testimonialAuthor}
           authorTitle={t.testimonialTitle}
+          authorImage={images.avatarSarahJohnson}
           rating={5}
         />
       </ScrollReveal>
@@ -356,7 +358,7 @@ export default function ContactPage() {
               <div
                 className="min-h-75 rounded-2xl flex flex-col items-center justify-center map-placeholder"
                 style={{
-                  border: `1px solid ${theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'}`,
+                  border: '1px solid rgba(255,255,255,0.1)',
                 }}
               >
                 <MapPin

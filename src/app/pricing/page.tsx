@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useLayout } from '@/lib/context';
 import { translations } from '@/lib/translations';
 import { BRAND_COLOR } from '@/lib/constants';
+import { images } from '@/lib/images';
 import { PricingCard } from '@/components/cards/PricingCard';
 import { ComparisonTable, ComparisonRow } from '@/components/sections/ComparisonTable';
 import { TestimonialSection } from '@/components/sections/TestimonialSection';
@@ -246,6 +247,7 @@ export default function PricingPage() {
           quote={t.testimonialQuote}
           authorName={t.testimonialAuthor}
           authorTitle={t.testimonialTitle}
+          authorImage={images.avatarSarahJohnson}
           rating={5}
         />
       </ScrollReveal>

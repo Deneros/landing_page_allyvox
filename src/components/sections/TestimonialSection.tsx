@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useLayout } from '@/lib/context';
 import { BRAND_COLOR } from '@/lib/constants';
 import { Star } from 'lucide-react';
@@ -8,6 +9,7 @@ export interface TestimonialSectionProps {
   quote: string;
   authorName: string;
   authorTitle: string;
+  authorImage?: string;
   rating?: number;
 }
 
@@ -15,6 +17,7 @@ export function TestimonialSection({
   quote,
   authorName,
   authorTitle,
+  authorImage,
   rating = 5,
 }: TestimonialSectionProps) {
   const { altBgColor, textColor, mutedText } = useLayout();
@@ -47,14 +50,24 @@ export function TestimonialSection({
 
         {/* Author */}
         <div className="flex items-center justify-center gap-4">
-          <div
-            className="w-12 h-12 rounded-full flex items-center justify-center"
-            style={{ backgroundColor: BRAND_COLOR }}
-          >
-            <span className="text-white font-semibold text-lg">
-              {authorName.charAt(0)}
-            </span>
-          </div>
+          {authorImage ? (
+            <Image
+              src={authorImage}
+              alt={authorName}
+              width={48}
+              height={48}
+              className="rounded-full object-cover"
+            />
+          ) : (
+            <div
+              className="w-12 h-12 rounded-full flex items-center justify-center"
+              style={{ backgroundColor: BRAND_COLOR }}
+            >
+              <span className="text-white font-semibold text-lg">
+                {authorName.charAt(0)}
+              </span>
+            </div>
+          )}
           <div className="text-left">
             <p
               className="font-semibold"

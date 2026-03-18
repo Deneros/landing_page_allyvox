@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { useLayout } from '@/lib/context';
 import { BRAND_COLOR, BRAND_COLOR_HOVER } from '@/lib/constants';
 
 interface ContactFormProps {
@@ -21,13 +20,12 @@ interface ContactFormProps {
 }
 
 export function ContactForm({ labels }: ContactFormProps) {
-  const { theme } = useLayout();
   const [isHovered, setIsHovered] = useState(false);
 
-  const inputBg = theme === 'dark' ? '#1a1410' : '#ffffff';
-  const inputBorder = theme === 'dark' ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.15)';
-  const labelColor = theme === 'dark' ? '#ffffff' : '#0c0803';
-  const formBg = theme === 'dark' ? 'rgba(255,255,255,0.05)' : '#f5f3f0';
+  const inputBg = '#1a1410';
+  const inputBorder = 'rgba(255,255,255,0.15)';
+  const labelColor = '#ffffff';
+  const formBg = 'rgba(255,255,255,0.05)';
 
   return (
     <form

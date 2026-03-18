@@ -14,10 +14,10 @@ interface FAQAccordionProps {
 }
 
 export function FAQAccordion({ items }: FAQAccordionProps) {
-  const { theme, textColor, mutedText } = useLayout();
+  const { textColor, mutedText } = useLayout();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const itemBg = theme === 'dark' ? 'rgba(255,255,255,0.05)' : '#f5f3f0';
+  const itemBg = 'rgba(255,255,255,0.05)';
 
   return (
     <div className="w-full max-w-3xl mx-auto space-y-4">
