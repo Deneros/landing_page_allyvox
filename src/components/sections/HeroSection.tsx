@@ -20,10 +20,27 @@ export function HeroSection({
   return (
     <section className="relative isolate w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: bgColor }}>
       <DotPattern className="opacity-60" />
+      
+      {/* Background Image with Gradient Fade */}
+      {imageSrc && (
+        <div className="absolute inset-0 hidden md:block overflow-hidden pointer-events-none">
+          <div className="absolute right-0 top-0 w-3/5 h-full hero-image-fade">
+            <Image
+              src={imageSrc}
+              alt="Hero Background"
+              fill
+              className="w-full h-full object-cover"
+              style={{ objectPosition: 'right center' }}
+              priority
+            />
+          </div>
+        </div>
+      )}
+
       <div className="relative z-10 w-full max-w-7xl mx-auto">
-        <div className={`${imageSrc ? 'grid md:grid-cols-2 gap-12 md:gap-16 items-center' : 'max-w-3xl mx-auto text-center'}`}>
+        <div className={`${imageSrc ? 'max-w-2xl' : 'max-w-3xl mx-auto text-center'}`}>
           {/* Text Content */}
-          <div className={imageSrc ? '' : 'mb-12 sm:mb-16'}>
+          <div>
             <ScrollReveal variant="fade-up">
               <h1
                 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-tight mb-6 sm:mb-8 tracking-tight ${!imageSrc ? 'text-center' : ''}`}
@@ -62,20 +79,6 @@ export function HeroSection({
               </div>
             </ScrollReveal>
           </div>
-
-          {/* Image */}
-          {imageSrc && (
-            <ScrollReveal variant="fade-left" delay={200}>
-              <div className="relative h-[300px] sm:h-[400px] md:h-[500px] rounded-lg overflow-hidden placeholder-image">
-                <Image
-                  src={imageSrc}
-                  alt="Hero"
-                  fill
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </ScrollReveal>
-          )}
         </div>
       </div>
     </section>

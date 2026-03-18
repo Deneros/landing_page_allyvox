@@ -394,3 +394,8 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 22px var(--glow-color-soft);
   transform: scale(1.03);
 }
+
+.hero-image-fade {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 35%);
+  mask-image: linear-gradient(to right, transparent 0%, black 35%);
+}

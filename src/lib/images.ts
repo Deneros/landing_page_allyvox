@@ -1,6 +1,7 @@
 // Image assets - Using permanent Unsplash URLs
 export const images = {
   // Hero/feature images - AI and technology themed
+  heroImage: "/hero_image.png",
   placeholderImage: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop",
   placeholderImage1: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=800&h=600&fit=crop",
   placeholderImage2: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",

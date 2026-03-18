@@ -44,7 +44,7 @@ export default function Home() {
       <HeroSection
         title={t.hero.title}
         description={t.hero.description}
-        imageSrc={images.placeholderImage}
+        imageSrc={images.heroImage}
         primaryButtonText={t.hero.startTrial}
         secondaryButtonText={t.hero.scheduleDemo}
       />
