@@ -1,7 +1,7 @@
 'use client';
 
 import { useLayout } from '@/lib/context';
-import { BRAND_COLOR, BRAND_COLOR_HOVER } from '@/lib/constants';
+import { BRAND_COLOR, BRAND_COLOR_ACCENT, BRAND_COLOR_HOVER } from '@/lib/constants';
 import { Check } from 'lucide-react';
 
 export interface PricingCardProps {
@@ -13,6 +13,8 @@ export interface PricingCardProps {
   features: string[];
   buttonText: string;
   isHighlighted?: boolean;
+  isSelected?: boolean;
+  onSelect?: () => void;
   onButtonClick?: () => void;
 }
 
@@ -25,17 +27,21 @@ export function PricingCard({
   features,
   buttonText,
   isHighlighted = false,
+  isSelected = false,
+  onSelect,
   onButtonClick,
 }: PricingCardProps) {
   const { bgColor, textColor, mutedText, borderColor } = useLayout();
 
   return (
     <div
-      className={`flex flex-col p-8 rounded-xl border transition-all duration-500 hover:scale-[1.02] card-glow-hover ${isHighlighted ? 'glow-soft' : ''}`}
+      onClick={onSelect}
+      className={`flex flex-col p-8 rounded-xl border transition-all duration-300 card-glow-hover cursor-pointer ${isHighlighted ? 'glow-soft' : ''} ${isSelected ? 'scale-105' : 'hover:scale-[1.02]'}`}
       style={{
         backgroundColor: bgColor,
-        borderColor: isHighlighted ? BRAND_COLOR : borderColor,
-        borderWidth: isHighlighted ? 2 : 1,
+        borderColor: isSelected ? BRAND_COLOR_ACCENT : isHighlighted ? BRAND_COLOR : borderColor,
+        borderWidth: isSelected || isHighlighted ? 2 : 1,
+        boxShadow: isSelected ? `0 0 0 2px ${BRAND_COLOR_ACCENT}33, 0 8px 32px ${BRAND_COLOR_ACCENT}22` : undefined,
       }}
     >
       {/* Header */}

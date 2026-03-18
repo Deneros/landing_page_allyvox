@@ -12,15 +12,9 @@
   --glow-color-soft: rgba(48, 34, 137, 0.5);
 }
 
-/* Light mode glow */
-html.light {
-  --glow-color: rgba(145, 56, 213, 0.45);
-  --glow-color-soft: rgba(48, 34, 137, 0.35);
-}
-
 /* ===== THEME-AWARE CSS VARIABLES ===== */
-/* Dark theme (default) */
-html, html.dark {
+/* Dark theme */
+html {
   --theme-bg: #0d0a1e;
   --theme-bg-alt: #080615;
   --theme-surface: rgba(145, 56, 213, 0.08);
@@ -30,19 +24,6 @@ html, html.dark {
   --theme-border: rgba(145, 56, 213, 0.25);
   --theme-input-bg: #120e2a;
   --theme-input-border: rgba(145, 56, 213, 0.2);
-}
-
-/* Light theme — rich lavender, not plain white */
-html.light {
-  --theme-bg: #f0eafe;
-  --theme-bg-alt: #e5dcfb;
-  --theme-surface: rgba(48, 34, 137, 0.09);
-  --theme-surface-hover: rgba(48, 34, 137, 0.16);
-  --theme-text: #0d0a1e;
-  --theme-text-muted: #3d3568;
-  --theme-border: rgba(48, 34, 137, 0.22);
-  --theme-input-bg: #f7f3ff;
-  --theme-input-border: rgba(48, 34, 137, 0.2);
 }
 
 /* ===== THEME-AWARE UTILITY CLASSES ===== */

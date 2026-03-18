@@ -1,11 +1,14 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { useLayout } from '@/lib/context';
 import { translations } from '@/lib/translations';
 import type { MobileMenuProps } from '@/components/types';
 
 export function MobileMenu({ resourcesOpen, onToggleResources }: MobileMenuProps) {
   const { language, bgColor, borderColor, textColor, secondaryBgColor, hoverBgColor } = useLayout();
+  const pathname = usePathname();
+  const isActive = (href: string) => pathname === href;
   const t = translations[language];
 
   return (
@@ -20,7 +23,7 @@ export function MobileMenu({ resourcesOpen, onToggleResources }: MobileMenuProps
         <a
           href="/solutions"
           className="block px-3 py-2 rounded-lg text-base font-medium transition-all duration-200"
-          style={{ backgroundColor: secondaryBgColor }}
+          style={{ backgroundColor: secondaryBgColor, color: isActive('/solutions') ? '#9138d5' : textColor }}
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = hoverBgColor)}
           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = secondaryBgColor)}
         >
@@ -29,7 +32,7 @@ export function MobileMenu({ resourcesOpen, onToggleResources }: MobileMenuProps
         <a
           href="/pricing"
           className="block px-3 py-2 rounded-lg text-base font-medium transition-all duration-200"
-          style={{ backgroundColor: secondaryBgColor }}
+          style={{ backgroundColor: secondaryBgColor, color: isActive('/pricing') ? '#9138d5' : textColor }}
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = hoverBgColor)}
           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = secondaryBgColor)}
         >
@@ -38,7 +41,7 @@ export function MobileMenu({ resourcesOpen, onToggleResources }: MobileMenuProps
         <a
           href="/contact"
           className="block px-3 py-2 rounded-lg text-base font-medium transition-all duration-200"
-          style={{ backgroundColor: secondaryBgColor }}
+          style={{ backgroundColor: secondaryBgColor, color: isActive('/contact') ? '#9138d5' : textColor }}
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = hoverBgColor)}
           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = secondaryBgColor)}
         >

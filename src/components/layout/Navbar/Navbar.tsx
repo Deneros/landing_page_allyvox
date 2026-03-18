@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { useLayout } from '@/lib/context';
 import { translations } from '@/lib/translations';
-import { ThemeToggle } from './ThemeToggle';
 import { LanguageSelector } from './LanguageSelector';
 import { ResourcesDropdown } from './ResourcesDropdown';
 import { MobileMenu } from './MobileMenu';
@@ -14,8 +14,10 @@ export function Navbar() {
   const { language, bgColor, borderColor, secondaryBgColor, hoverBgColor } = useLayout();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resourcesDropdownOpen, setResourcesDropdownOpen] = useState(false);
+  const pathname = usePathname();
 
   const t = translations[language];
+  const isActive = (href: string) => pathname === href;
 
   return (
     <nav
@@ -41,18 +43,21 @@ export function Navbar() {
             <a
               href="/solutions"
               className="text-base font-medium transition-all duration-200 hover:text-[#9138d5]"
+              style={{ color: isActive('/solutions') ? '#9138d5' : undefined }}
             >
               {t.nav.solutions}
             </a>
             <a
               href="/pricing"
               className="text-base font-medium transition-all duration-200 hover:text-[#9138d5]"
+              style={{ color: isActive('/pricing') ? '#9138d5' : undefined }}
             >
               {t.nav.pricing}
             </a>
             <a
               href="/contact"
               className="text-base font-medium transition-all duration-200 hover:text-[#9138d5]"
+              style={{ color: isActive('/contact') ? '#9138d5' : undefined }}
             >
               {t.nav.contact}
             </a>
@@ -67,7 +72,6 @@ export function Navbar() {
 
         {/* Theme Toggle, Language Selector, and Mobile Menu Button */}
         <div className="flex gap-3 items-center lg:gap-4">
-          <ThemeToggle />
           <LanguageSelector />
 
           {/* Mobile Menu Button */}

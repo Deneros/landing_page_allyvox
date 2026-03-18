@@ -14,16 +14,18 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 export default function PricingPage() {
   const { language, bgColor, altBgColor, textColor, mutedText, secondaryBgColor, borderColor } = useLayout();
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'annual'>('monthly');
+  const [selectedPlan, setSelectedPlan] = useState<'starter' | 'professional' | 'enterprise' | null>(null);
 
   const t = translations[language].pricingPage;
+  const isAnnual = billingPeriod === 'annual';
 
-  // Build plan data from translations
+  // Build plan data from translations — prices switch based on billing period
   const plans = {
     starter: {
       name: t.starterName,
       description: t.starterDescription,
-      price: t.starterPrice,
-      period: t.starterPeriod,
+      price: isAnnual ? t.starterAnnualPrice : t.starterPrice,
+      period: isAnnual ? t.starterAnnualPeriod : t.starterPeriod,
       desc: t.starterDesc,
       features: [t.starterFeature1, t.starterFeature2, t.starterFeature3, t.starterFeature4],
       button: t.starterButton,
@@ -31,8 +33,8 @@ export default function PricingPage() {
     professional: {
       name: t.professionalName,
       description: t.professionalDescription,
-      price: t.professionalPrice,
-      period: t.professionalPeriod,
+      price: isAnnual ? t.professionalAnnualPrice : t.professionalPrice,
+      period: isAnnual ? t.professionalAnnualPeriod : t.professionalPeriod,
       desc: t.professionalDesc,
       features: [t.professionalFeature1, t.professionalFeature2, t.professionalFeature3, t.professionalFeature4],
       button: t.professionalButton,
@@ -40,8 +42,8 @@ export default function PricingPage() {
     enterprise: {
       name: t.enterpriseName,
       description: t.enterpriseDescription,
-      price: t.enterprisePrice,
-      period: t.enterprisePeriod,
+      price: isAnnual ? t.enterpriseAnnualPrice : t.enterprisePrice,
+      period: isAnnual ? t.enterpriseAnnualPeriod : t.enterprisePeriod,
       desc: t.enterpriseDesc,
       features: [t.enterpriseFeature1, t.enterpriseFeature2, t.enterpriseFeature3, t.enterpriseFeature4],
       button: t.enterpriseButton,
@@ -131,13 +133,22 @@ export default function PricingPage() {
                 <button
                   type="button"
                   onClick={() => setBillingPeriod('annual')}
-                  className={`px-6 py-2.5 rounded-md text-xs font-medium tracking-wider transition-all duration-500 ${billingPeriod === 'annual' ? 'glow-soft' : ''}`}
+                  className={`px-6 py-2.5 rounded-md text-xs font-medium tracking-wider transition-all duration-500 flex items-center gap-2 ${billingPeriod === 'annual' ? 'glow-soft' : ''}`}
                   style={{
                     backgroundColor: billingPeriod === 'annual' ? BRAND_COLOR : 'transparent',
                     color: billingPeriod === 'annual' ? 'white' : mutedText,
                   }}
                 >
                   {t.annual}
+                  <span
+                    className="text-[10px] font-bold px-1.5 py-0.5 rounded-full"
+                    style={{
+                      backgroundColor: billingPeriod === 'annual' ? 'rgba(255,255,255,0.2)' : 'rgba(145,56,213,0.15)',
+                      color: billingPeriod === 'annual' ? 'white' : '#9138d5',
+                    }}
+                  >
+                    {t.annualBadge}
+                  </span>
                 </button>
               </div>
             </div>
@@ -154,6 +165,8 @@ export default function PricingPage() {
                 description={plans.starter.desc}
                 features={plans.starter.features}
                 buttonText={plans.starter.button}
+                isSelected={selectedPlan === 'starter'}
+                onSelect={() => setSelectedPlan('starter')}
               />
             </ScrollReveal>
             <ScrollReveal variant="fade-up" delay={150}>
@@ -166,6 +179,8 @@ export default function PricingPage() {
                 features={plans.professional.features}
                 buttonText={plans.professional.button}
                 isHighlighted
+                isSelected={selectedPlan === 'professional'}
+                onSelect={() => setSelectedPlan('professional')}
               />
             </ScrollReveal>
             <ScrollReveal variant="fade-up" delay={300}>
@@ -177,6 +192,8 @@ export default function PricingPage() {
                 description={plans.enterprise.desc}
                 features={plans.enterprise.features}
                 buttonText={plans.enterprise.button}
+                isSelected={selectedPlan === 'enterprise'}
+                onSelect={() => setSelectedPlan('enterprise')}
               />
             </ScrollReveal>
           </div>
@@ -217,7 +234,7 @@ export default function PricingPage() {
               starterLabel={t.comparisonStarter}
               professionalLabel={t.comparisonProfessional}
               enterpriseLabel={t.comparisonEnterprise}
-              periodLabel={t.comparisonPeriodLabel}
+              periodLabel={isAnnual ? t.comparisonPeriodLabelAnnual : t.comparisonPeriodLabel}
             />
           </ScrollReveal>
         </div>
