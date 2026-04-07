@@ -4,7 +4,7 @@ import { useLayout } from '@/lib/context';
 import { translations } from '@/lib/translations';
 
 export function SocialLinks() {
-  const { language, theme, textColor } = useLayout();
+  const { language, textColor } = useLayout();
   const t = translations[language];
 
   const socialPlatforms = [
@@ -35,7 +35,7 @@ export function SocialLinks() {
     {
       label: 'X',
       url: 'https://x.com',
-      color: theme === 'dark' ? '#FFFFFF' : '#000000',
+      color: '#FFFFFF',
       invertOnHover: true,
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

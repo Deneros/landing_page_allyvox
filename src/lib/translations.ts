@@ -141,6 +141,7 @@ export const translations = {
       heroDescription: 'AI handles your calls. Your business grows. No waiting, no friction, just results.',
     },
     contactPage: {
+      heroTagline: 'Contact',
       heroTitle: 'Voice agents that work',
       heroSubtitle: "We've combined best-in-class features, brand-safe agent models, and customer service expertise to help you sell more with AI voice agents.",
       heroCTA: 'Get started',
@@ -408,6 +409,7 @@ export const translations = {
       heroDescription: 'La IA maneja tus llamadas. Tu negocio crece. Sin esperas, sin fricciones, solo resultados.',
     },
     contactPage: {
+      heroTagline: 'Contacto',
       heroTitle: 'Agentes de voz que funcionan',
       heroSubtitle: 'Hemos combinado las mejores características, modelos de agentes seguros para la marca y experiencia en servicio al cliente para ayudarte a vender más con agentes de voz IA.',
       heroCTA: 'Comenzar',

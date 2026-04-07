@@ -58,3 +58,5 @@ logs/
 
 # Design files
 *.pen
+package-lock.json
+.claude
