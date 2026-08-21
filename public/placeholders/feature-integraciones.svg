@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="766" height="650" viewBox="0 0 766 650" role="img" aria-label="Integraciones, marcador de posicion 766 por 650">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="55%" stop-color="#f7f6fb"/>
+      <stop offset="100%" stop-color="#efecf8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="28%" r="66%">
+      <stop offset="0%" stop-color="#a93de8" stop-opacity="0.13"/>
+      <stop offset="100%" stop-color="#a93de8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse">
+      <path d="M 54 0 L 0 0 0 54" fill="none" stroke="#5526b4" stroke-opacity="0.09" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="766" height="650" fill="url(#g)"/>
+  <rect width="766" height="650" fill="url(#grid)"/>
+  <rect width="766" height="650" fill="url(#glow)"/>
+  <rect x="0.5" y="0.5" width="765" height="649" fill="none" stroke="#5526b4" stroke-opacity="0.20" stroke-width="1"/>
+  <g text-anchor="middle" font-family="Montserrat, Inter, system-ui, sans-serif">
+    <text x="383.0" y="318.2" fill="#17102e" fill-opacity="0.88" font-size="34" font-weight="600" letter-spacing="-0.5">Integraciones</text>
+    <text x="383.0" y="367.5" fill="#7c2bc9" fill-opacity="0.85" font-size="25" font-weight="500" letter-spacing="2">766 x 650</text>
+  </g>
+</svg>

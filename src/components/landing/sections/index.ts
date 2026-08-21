@@ -1,0 +1,12 @@
+export { Hero } from './Hero';
+export { LogoWall } from './LogoWall';
+export { Features } from './Features';
+export { Capabilities } from './Capabilities';
+export { Stats } from './Stats';
+export { Managed } from './Managed';
+export { Comparison } from './Comparison';
+export { HowItWorks } from './HowItWorks';
+export { Pricing } from './Pricing';
+export { Demo } from './Demo';
+export { Faq } from './Faq';
+export { FinalCta } from './FinalCta';

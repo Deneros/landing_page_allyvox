@@ -1,201 +1,48 @@
 'use client';
 
 import { useLayout } from '@/lib/context';
-import { translations } from '@/lib/translations';
-import { images } from '@/lib/images';
-import { HeroSection } from '@/components/sections/HeroSection';
-import { SectionHeader } from '@/components/ui/SectionHeader';
-import { FeatureCard } from '@/components/cards/FeatureCard';
-import { TwoColumnSection } from '@/components/sections/TwoColumnSection';
-import { TestimonialCarousel } from '@/components/sections/TestimonialCarousel';
-import { CTAButton } from '@/components/ui/CTAButton';
-import { DotPattern } from '@/components/ui/DotPattern';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { landingCopy } from '@/lib/copy/landing';
+import {
+  Capabilities,
+  Comparison,
+  Demo,
+  Faq,
+  Features,
+  FinalCta,
+  Hero,
+  HowItWorks,
+  LogoWall,
+  Managed,
+  Pricing,
+  Stats,
+} from '@/components/landing/sections';
 
+/**
+ * Home.
+ *
+ * Doce secciones, cada una con una familia de layout distinta:
+ * hero centrado, cinta, rejilla 2+3, cinta de capacidades, banda asimetrica,
+ * recuadro claro, comparativa a dos columnas, tres pasos escalonados,
+ * tabla de planes, recuadro con captura, acordeon y cierre.
+ */
 export default function Home() {
-  const { language, bgColor, altBgColor } = useLayout();
-  const t = translations[language];
-
-  // Testimonials data
-  const testimonials = [
-    {
-      quote: t?.testimonial?.quote || 'Amazing product that transformed our business.',
-      author: t?.testimonial?.author || 'Marcus Chen',
-      title: t?.testimonial?.title || 'VP Sales, TechFlow Inc',
-      avatar: images.avatarMarcusChen,
-    },
-    {
-      quote: t?.testimonial2?.quote || 'Excellent service and support. Highly recommended!',
-      author: t?.testimonial2?.author || 'John Martinez',
-      title: t?.testimonial2?.title || 'Product Manager, Digital Solutions',
-      avatar: images.avatarJohnMartinez,
-    },
-    {
-      quote: t?.testimonial3?.quote || 'The best investment we made for our team this year.',
-      author: t?.testimonial3?.author || 'Emma Wilson',
-      title: t?.testimonial3?.title || 'Director, Creative Studios',
-      avatar: images.avatarEmmaWilson,
-    },
-  ];
+  const { language } = useLayout();
+  const copy = landingCopy[language];
 
   return (
-    <>
-      {/* Hero Section */}
-      <HeroSection
-        title={t.hero.title}
-        description={t.hero.description}
-        imageSrc={images.heroImage}
-        primaryButtonText={t.hero.startTrial}
-        secondaryButtonText={t.hero.scheduleDemo}
-      />
-
-      {/* Why Section */}
-      <section className="relative isolate w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: altBgColor }}>
-        <DotPattern color="#302289" accentColor="#9138d5" spacing={20} opacity={0.45} />
-        <div className="relative z-10 w-full max-w-7xl mx-auto">
-          <ScrollReveal variant="fade-up">
-            <SectionHeader
-              tagline={t.why.tagline}
-              title={t.why.title}
-              description={t.why.description}
-            />
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-            {[
-              { title: t.why.feature1, description: t.why.feature1Desc },
-              { title: t.why.feature2, description: t.why.feature2Desc },
-              { title: t.why.feature3, description: t.why.feature3Desc },
-            ].map((feature, index) => (
-              <ScrollReveal key={index} variant="fade-up" delay={index * 150}>
-                <FeatureCard
-                  icon="✓"
-                  title={feature.title}
-                  description={feature.description}
-                  variant="default"
-                />
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: bgColor }}>
-        <div className="w-full max-w-7xl mx-auto">
-          <ScrollReveal variant="fade-up">
-            <SectionHeader
-              tagline={t.process.tagline}
-              title={t.process.title}
-              description={t.process.description}
-            />
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-            {[
-              { title: t.process.step1, description: t.process.step1Desc },
-              { title: t.process.step2, description: t.process.step2Desc },
-              { title: t.process.step3, description: t.process.step3Desc },
-            ].map((step, index) => (
-              <ScrollReveal key={index} variant="fade-up" delay={index * 150}>
-                <FeatureCard
-                  icon={String(index + 1)}
-                  title={step.title}
-                  description={step.description}
-                  variant="numbered"
-                />
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Built Section */}
-      <section className="w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: altBgColor }}>
-        <div className="w-full max-w-7xl mx-auto">
-          <ScrollReveal variant="fade-up">
-            <SectionHeader
-              tagline={t.built.tagline}
-              title={t.built.title}
-              description={t.built.description}
-            />
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-            {[
-              { icon: '⚙', title: t.built.feature1, description: t.built.feature1Desc },
-              { icon: '📱', title: t.built.feature2, description: t.built.feature2Desc },
-              { icon: '📊', title: t.built.feature3, description: t.built.feature3Desc },
-            ].map((feature, index) => (
-              <ScrollReveal key={index} variant="fade-up" delay={index * 150}>
-                <FeatureCard
-                  icon={feature.icon}
-                  title={feature.title}
-                  description={feature.description}
-                  variant="default"
-                />
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Integration Section */}
-      <section className="w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: bgColor }}>
-        <div className="w-full max-w-7xl mx-auto">
-          <ScrollReveal variant="fade-up">
-            <TwoColumnSection
-              tagline={t.integration.tagline}
-              title={t.integration.title}
-              description={t.integration.description}
-              features={[
-                t.integration.feature1,
-                t.integration.feature2,
-                t.integration.feature3,
-              ]}
-              buttonText={t.hero.startTrial}
-              imageSrc={images.placeholderImage1}
-              imagePosition="right"
-            />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Testimonial Section */}
-      <section
-        className="relative isolate w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 transition-colors duration-300 overflow-hidden"
-        style={{ backgroundColor: altBgColor }}
-      >
-        <DotPattern color="#9138d5" accentColor="#2e8dff" spacing={22} opacity={0.35} />
-        <div className="relative z-10">
-          <ScrollReveal variant="scale" duration={800}>
-            <TestimonialCarousel testimonials={testimonials} autoRotateInterval={5000} />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="relative isolate w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden" style={{ backgroundColor: bgColor }}>
-        <DotPattern color="#302289" accentColor="#76f6f5" spacing={16} opacity={0.7} />
-        <div className="relative z-10 w-full max-w-7xl mx-auto">
-          <div className="w-full max-w-4xl mx-auto text-center">
-            <ScrollReveal variant="fade-up">
-              <SectionHeader
-                title={t.cta.title}
-                description={t.cta.description}
-              />
-            </ScrollReveal>
-
-            <ScrollReveal variant="fade-up" delay={200}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <CTAButton className="sm:px-10 sm:py-3.5 glow-hover">
-                  {t.hero.startTrial}
-                </CTAButton>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-    </>
+    <main>
+      <Hero copy={copy.hero} />
+      <LogoWall copy={copy.logos} />
+      <Features copy={copy.features} />
+      <Capabilities copy={copy.capabilities} />
+      <Stats copy={copy.stats} />
+      <Managed copy={copy.managed} />
+      <Comparison copy={copy.comparison} />
+      <HowItWorks copy={copy.howItWorks} />
+      <Pricing copy={copy.pricing} />
+      <Demo copy={copy.demo} />
+      <Faq copy={copy.faq} />
+      <FinalCta copy={copy.finalCta} />
+    </main>
   );
 }
