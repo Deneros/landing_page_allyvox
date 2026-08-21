@@ -42,22 +42,22 @@ export function Navbar() {
           <div className="hidden lg:flex gap-8 items-center">
             <a
               href="/solutions"
-              className="text-base font-medium transition-all duration-200 hover:text-[#9138d5]"
-              style={{ color: isActive('/solutions') ? '#9138d5' : undefined }}
+              className="text-base font-medium transition-all duration-200 hover:text-[var(--brand-accent)]"
+              style={{ color: isActive('/solutions') ? 'var(--brand-accent)' : undefined }}
             >
               {t.nav.solutions}
             </a>
             <a
               href="/pricing"
-              className="text-base font-medium transition-all duration-200 hover:text-[#9138d5]"
-              style={{ color: isActive('/pricing') ? '#9138d5' : undefined }}
+              className="text-base font-medium transition-all duration-200 hover:text-[var(--brand-accent)]"
+              style={{ color: isActive('/pricing') ? 'var(--brand-accent)' : undefined }}
             >
               {t.nav.pricing}
             </a>
             <a
               href="/contact"
-              className="text-base font-medium transition-all duration-200 hover:text-[#9138d5]"
-              style={{ color: isActive('/contact') ? '#9138d5' : undefined }}
+              className="text-base font-medium transition-all duration-200 hover:text-[var(--brand-accent)]"
+              style={{ color: isActive('/contact') ? 'var(--brand-accent)' : undefined }}
             >
               {t.nav.contact}
             </a>
@@ -76,13 +76,17 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
+            type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Cerrar menu' : 'Abrir menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
             className="lg:hidden p-2 rounded-lg transition-all duration-200"
             style={{ backgroundColor: secondaryBgColor }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = hoverBgColor)}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = secondaryBgColor)}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg aria-hidden className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

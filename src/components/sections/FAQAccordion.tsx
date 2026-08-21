@@ -17,7 +17,7 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
   const { textColor, mutedText } = useLayout();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const itemBg = 'rgba(255,255,255,0.05)';
+  const itemBg = 'var(--surface-2)';
 
   return (
     <div className="w-full max-w-3xl mx-auto space-y-4">
