@@ -1,32 +1,64 @@
 @import "tailwindcss";
 
+/* =====================================================================
+   TOKENS - valores base
+   Ojo: el tema vigente es el CLARO, definido al final del archivo. Estos
+   valores oscuros quedan como base historica y los pisa el :root de abajo.
+   Escala de radios: botones 12px, tarjetas 16px, pastillas full.
+   ===================================================================== */
 :root {
   --font-raleway: var(--font-raleway);
   --font-montserrat: var(--font-montserrat);
-  /* VoxAlly brand colors */
-  --brand-color: #302289;
-  --brand-color-accent: #9138d5;
-  --brand-color-hover: #1e1566;
-  /* Dark mode glow - purple */
-  --glow-color: rgba(145, 56, 213, 0.6);
-  --glow-color-soft: rgba(48, 34, 137, 0.5);
+
+  /* Marca AllyVox */
+  --brand: #302289;
+  --brand-accent: #9138d5;
+  --brand-accent-hover: #a453e2;
+
+  /* Superficies. Sin negro puro: mata la profundidad. */
+  --surface-0: #0b0818;
+  --surface-1: #110d24;
+  --surface-2: rgba(145, 56, 213, 0.07);
+  --surface-3: rgba(145, 56, 213, 0.13);
+
+  /* Texto */
+  --text-0: #f6f4ff;
+  --text-1: rgba(246, 244, 255, 0.72);
+  --text-2: rgba(246, 244, 255, 0.5);
+
+  /* Lineas */
+  --line: rgba(145, 56, 213, 0.16);
+  --line-strong: rgba(145, 56, 213, 0.34);
+
+  /* Sombras tintadas al fondo, nunca negro puro ni halo neon */
+  --shadow-card: 0 18px 40px -24px rgba(9, 5, 24, 0.9);
+  --shadow-lift: 0 26px 60px -28px rgba(145, 56, 213, 0.45);
+
+  --radius-btn: 12px;
+  --radius-card: 16px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ===== THEME-AWARE CSS VARIABLES ===== */
-/* Dark theme */
+/* Alias heredados: las paginas de precios, contacto y soluciones aun los usan. */
 html {
-  --theme-bg: #0d0a1e;
+  --theme-bg: var(--surface-0);
   --theme-bg-alt: #080615;
-  --theme-surface: rgba(145, 56, 213, 0.08);
-  --theme-surface-hover: rgba(145, 56, 213, 0.15);
-  --theme-text: #ffffff;
-  --theme-text-muted: rgba(255, 255, 255, 0.65);
-  --theme-border: rgba(145, 56, 213, 0.25);
+  --theme-surface: var(--surface-2);
+  --theme-surface-hover: var(--surface-3);
+  --theme-text: var(--text-0);
+  --theme-text-muted: var(--text-1);
+  --theme-border: var(--line-strong);
   --theme-input-bg: #120e2a;
-  --theme-input-border: rgba(145, 56, 213, 0.2);
+  --theme-input-border: var(--line);
+  --brand-color: var(--brand);
+  --brand-color-accent: var(--brand-accent);
+  --brand-color-hover: #1e1566;
+
+  scroll-behavior: smooth;
 }
 
-/* ===== THEME-AWARE UTILITY CLASSES ===== */
+/* ===== UTILIDADES DE TEMA ===== */
 .bg-theme { background-color: var(--theme-bg); }
 .bg-theme-alt { background-color: var(--theme-bg-alt); }
 .bg-theme-surface { background-color: var(--theme-surface); }
@@ -37,41 +69,45 @@ html {
 
 .border-theme { border-color: var(--theme-border); }
 
-/* Interactive theme utilities */
 .hover\:bg-theme-surface:hover { background-color: var(--theme-surface); }
 .hover\:bg-theme-surface-hover:hover { background-color: var(--theme-surface-hover); }
 
-/* Form input styling */
 .input-theme {
   background-color: var(--theme-input-bg);
   border-color: var(--theme-input-border);
   color: var(--theme-text);
 }
 
+/* El navegador deriva el placeholder del color del texto al 50%, lo que sobre
+   blanco da 3.5 y no llega al minimo AA. Se fija explicitamente: --text-2 da
+   5.1 sobre blanco. opacity:1 hace falta porque Firefox la rebaja por su
+   cuenta y volveria a bajar el contraste. */
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-2);
+  opacity: 1;
+}
+
 .input-theme:focus {
-  border-color: var(--brand-color-accent);
+  border-color: var(--brand-accent);
   outline: none;
-  box-shadow: 0 0 0 2px rgba(145, 56, 213, 0.2);
+  box-shadow: 0 0 0 3px rgba(145, 56, 213, 0.22);
 }
 
-/* Card with theme-aware background */
 .card-theme {
-  background-color: var(--theme-surface);
-  border: 1px solid var(--theme-border);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  background-color: var(--surface-2);
+  border: 1px solid var(--line);
+  transition: background-color 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
 }
 
-.card-theme:hover {
-  background-color: var(--theme-surface-hover);
-}
+.card-theme:hover { background-color: var(--surface-3); }
 
-html {
-  scroll-behavior: smooth;
-}
-
+/* ===== TIPOGRAFIA ===== */
 body {
   font-family: var(--font-montserrat), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   line-height: 1.6;
+  background-color: var(--surface-0);
+  color: var(--text-0);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -80,247 +116,77 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-raleway), var(--font-montserrat), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 }
 
-/* ===== GLOW EFFECTS ===== */
-.glow {
-  box-shadow: 0 0 5px #fff, 0 0 20px var(--glow-color), 0 0 40px var(--glow-color-soft);
+/* Foco visible y consistente en toda la pagina. */
+:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 3px;
 }
 
+/* =====================================================================
+   ELEVACION
+   Antes esto era un halo neon (0 0 5px #fff). Se reemplaza por sombra
+   tintada al fondo. Las clases conservan su nombre para no tocar las
+   paginas que ya las usan.
+   ===================================================================== */
+.glow,
 .glow-soft {
-  box-shadow: 0 0 15px var(--glow-color-soft);
+  box-shadow: var(--shadow-card);
 }
 
 .glow-hover {
-  transition: box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.3s ease;
+  transition: box-shadow 0.35s var(--ease-out), transform 0.35s var(--ease-out);
 }
 
 .glow-hover:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 10px #fff, 0 0 30px var(--glow-color), 0 0 50px var(--glow-color-soft);
+  box-shadow: var(--shadow-lift);
 }
 
-.glow-text {
-  text-shadow: 0 0 8px #fff, 0 0 18px var(--glow-color), 0 0 30px var(--glow-color-soft);
+.card-glow-hover {
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out),
+    border-color 0.35s var(--ease-out);
 }
 
-.glow-border {
-  border: 1px solid var(--brand-color);
-  box-shadow: 0 0 15px var(--glow-color-soft), inset 0 0 10px var(--glow-color-soft);
+.card-glow-hover:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-lift);
 }
 
-/* Animated glow pulse */
-.glow-pulse {
-  animation: glowPulse 2.5s ease-in-out infinite;
+/* Borde interior de 1px: da canto fisico sin recurrir al halo. */
+.edge-highlight {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), var(--shadow-card);
 }
 
-@keyframes glowPulse {
-  0%, 100% {
-    box-shadow: 0 0 15px var(--glow-color-soft);
-  }
-  50% {
-    box-shadow: 0 0 10px #fff, 0 0 30px var(--glow-color), 0 0 55px var(--glow-color-soft);
-  }
-}
-
-/* ===== ANIMATION KEYFRAMES ===== */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
+/* ===== ANIMACIONES ===== */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes blurIn {
-  from {
-    opacity: 0;
-    filter: blur(10px);
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.animate-fade-in-up { animation: fadeInUp 0.6s var(--ease-out) forwards; }
+.animate-float { animation: float 4s ease-in-out infinite; }
 
-/* ===== ANIMATION UTILITY CLASSES ===== */
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.animate-fade-in-down {
-  animation: fadeInDown 0.6s ease-out forwards;
-}
-
-.animate-fade-in-left {
-  animation: fadeInLeft 0.6s ease-out forwards;
-}
-
-.animate-fade-in-right {
-  animation: fadeInRight 0.6s ease-out forwards;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.5s ease-out forwards;
-}
-
-.animate-slide-up {
-  animation: slideUp 0.7s ease-out forwards;
-}
-
-.animate-blur-in {
-  animation: blurIn 0.6s ease-out forwards;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.animate-shimmer {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-}
-
-.animate-spin-slow {
-  animation: spin-slow 8s linear infinite;
-}
-
-/* Animation delays */
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
-.delay-600 { animation-delay: 600ms; }
-.delay-700 { animation-delay: 700ms; }
-.delay-800 { animation-delay: 800ms; }
 
-/* ===== CARD HOVER EFFECTS ===== */
-.card-hover {
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-}
-
-.card-glow-hover {
-  transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
-}
-
-.card-glow-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 55px rgba(145, 56, 213, 0.4), 0 25px 40px rgba(0, 0, 0, 0.08);
-}
-
-/* ===== IMAGE PLACEHOLDER STYLING ===== */
-.placeholder-image {
-  background: linear-gradient(135deg, rgba(48, 34, 137, 0.08) 0%, rgba(145, 56, 213, 0.03) 100%);
+/* ===== PLACEHOLDERS DE IMAGEN ===== */
+.placeholder-image,
+.map-placeholder {
+  background: linear-gradient(135deg, rgba(48, 34, 137, 0.14) 0%, rgba(145, 56, 213, 0.05) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -329,45 +195,9 @@ h1, h2, h3, h4, h5, h6 {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.04) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
   background-size: 200% 100%;
   animation: shimmer 3s infinite;
-}
-
-/* ===== GLASSMORPHISM EFFECT ===== */
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.glass-dark {
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* ===== GRADIENT BACKGROUNDS ===== */
-.gradient-brand {
-  background: linear-gradient(135deg, var(--brand-color) 0%, var(--brand-color-accent) 100%);
-}
-
-.gradient-brand-soft {
-  background: linear-gradient(135deg, rgba(48, 34, 137, 0.15) 0%, rgba(145, 56, 213, 0.08) 100%);
-}
-
-/* ===== MAP PLACEHOLDER ===== */
-.map-placeholder {
-  background: linear-gradient(135deg, rgba(48, 34, 137, 0.06) 0%, rgba(145, 56, 213, 0.02) 100%);
-  position: relative;
-  overflow: hidden;
 }
 
 .map-placeholder::before {
@@ -375,27 +205,225 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(48, 34, 137, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(48, 34, 137, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(145, 56, 213, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(145, 56, 213, 0.09) 1px, transparent 1px);
   background-size: 30px 30px;
   opacity: 0.5;
 }
 
-/* ===== ICON CONTAINER ===== */
 .icon-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
-  transition: all 0.5s ease;
-}
-
-.icon-container-glow:hover {
-  box-shadow: 0 0 22px var(--glow-color-soft);
-  transform: scale(1.03);
+  border-radius: var(--radius-btn);
+  transition: all 0.35s var(--ease-out);
 }
 
 .hero-image-fade {
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 35%);
-  mask-image: linear-gradient(to right, transparent 0%, black 35%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 42%);
+  mask-image: linear-gradient(to right, transparent 0%, black 42%);
+}
+
+/* =====================================================================
+   MOVIMIENTO REDUCIDO
+   Red de seguridad global. Los componentes con Motion ya se apagan solos
+   via useReducedMotion; esto cubre lo que se anima solo con CSS.
+   ===================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .placeholder-image::after { animation: none; }
+}
+
+/* =====================================================================
+   PLANTILLA DE LA HOME
+   Capa aditiva. Prefijo --lv- para no pisar los tokens heredados
+   ni los alias heredados de precios, contacto y soluciones.
+   Referencia de composicion: estructura y densidad de movimiento de una
+   landing de agentes de IA. Paleta y tipografia son las de AllyVox.
+   ===================================================================== */
+:root {
+  /* Escala de radios propia: mas grande que la home actual. */
+  --lv-radius-btn: 13px;
+  --lv-radius-card: 20px;
+  --lv-radius-block: 32px;
+  --lv-radius-frame: 40px;
+
+  /* Superficies. El bloque de contraste es claro sobre el fondo oscuro. */
+  --lv-card: #130e2b;
+  --lv-card-soft: #171133;
+  --lv-block: #f4f1fb;
+  --lv-block-text: #17102e;
+  --lv-block-muted: rgba(23, 16, 46, 0.66);
+  --lv-block-line: rgba(23, 16, 46, 0.12);
+
+  /* Dos roles de acento, porque ningun morado sirve para ambos.
+     Medido sobre --lv-card (#130e2b) y sobre blanco:
+       fill  #a93de8  -> blanco encima 4.65  (pasa AA)
+       text  #b45cf0  -> sobre tarjeta 5.09  (pasa AA en cuerpo)
+     Los dos salen del logo oficial: #a93de8 es su morado brillante y
+     #b45cf0 es ese mismo tono aclarado un 12% para poder usarlo como texto. */
+  --lv-accent-fill: #a93de8;
+  --lv-accent-fill-hover: #b654ef;
+  --lv-accent-text: #b45cf0;
+  --lv-accent-deep: #5526b4;
+
+  --lv-line: rgba(169, 61, 232, 0.20);
+  --lv-line-soft: rgba(246, 244, 255, 0.10);
+
+  /* Roles dentro del recuadro de contraste. Se invierten con .lv-light. */
+  --lv-block-accent: #7b26c4;
+  --lv-block-btn-bg: #17102e;
+  --lv-block-btn-text: #ffffff;
+  --lv-block-badge-bg: rgba(255, 255, 255, 0.7);
+
+  /* Halo del hero. Mas tenue en claro, o se convierte en una mancha. */
+  --lv-halo: rgba(169, 61, 232, 0.22);
+
+  --lv-shadow-card: 0 20px 50px -30px rgba(6, 3, 18, 0.95);
+  --lv-shadow-feature: 0 40px 90px -50px rgba(145, 56, 213, 0.55);
+}
+
+/* Titulares de display: peso normal, tracking negativo fuerte, interlineado
+   por debajo del tamano. Es el gesto que define el tono editorial. */
+.lv-display {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+}
+
+/* Palabra de enfasis en serif italica dentro de un titular sans. */
+.lv-accent {
+  font-family: var(--font-source-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: var(--lv-accent-text);
+  /* Reserva para descendentes (g, y, j) que la italica saca del bloque. */
+  padding-bottom: 0.06em;
+}
+
+.lv-accent-on-light { color: var(--lv-block-accent); }
+
+/* Marquee infinito. La pista lleva la lista duplicada, por eso -50%. */
+@keyframes lv-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.lv-marquee-track {
+  animation: lv-marquee var(--lv-marquee-duration, 40s) linear infinite;
+  will-change: transform;
+}
+
+.lv-marquee:hover .lv-marquee-track { animation-play-state: paused; }
+
+/* Difuminado en los bordes para que la cinta no se corte en seco. */
+.lv-marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+/* Pulso del indicador en vivo. Solo box-shadow, no toca el layout. */
+@keyframes lv-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(52, 199, 123, 0.45); }
+  70%  { box-shadow: 0 0 0 7px rgba(52, 199, 123, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(52, 199, 123, 0); }
+}
+
+.lv-pulse { animation: lv-pulse 2.2s ease-out infinite; }
+
+/* Recorrido de luz sobre los conectores de la constelacion. */
+@keyframes lv-beam {
+  from { stroke-dashoffset: 44; }
+  to   { stroke-dashoffset: -220; }
+}
+
+.lv-beam {
+  stroke-dasharray: 22 220;
+  animation: lv-beam var(--lv-beam-duration, 4s) linear infinite;
+  animation-delay: var(--lv-beam-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-marquee-track,
+  .lv-pulse,
+  .lv-beam {
+    animation: none !important;
+  }
+  .lv-beam { stroke-dasharray: none; opacity: 0.35; }
+}
+
+
+/* =====================================================================
+   TEMA CLARO
+   Se aplica sobre <html>, asi que la barra y el pie tambien lo siguen:
+   los alias --theme-* derivan de --surface-* y --text-*.
+   Todos los valores estan medidos contra WCAG AA. Los dos morados salen
+   del logo: #5526b4 es su morado profundo y #7c2bc9 el intermedio.
+     texto morado   #7c2bc9 sobre hueso -> 6.41
+     boton          blanco sobre #5526b4 -> 9.04
+     texto cuerpo   rgba(23,16,46,.72)  -> 7.35
+     texto terciario rgba(23,16,46,.62) -> 4.94 sobre #f2f0f8, la superficie
+                     mas oscura del tema (a .58 daba 4.39 ahi y fallaba)
+   Es el tema de todo el sitio. Va al final del archivo a proposito: gana por
+   orden de aparicion a los :root anteriores, y por especificidad al bloque
+   html de los alias heredados, asi que no hace falta marcar nada con
+   !important ni duplicar valores.
+   ===================================================================== */
+:root {
+  color-scheme: light;
+
+  --surface-0: #ffffff;
+  --surface-1: #f7f6fb;
+  --surface-2: rgba(85, 38, 180, 0.05);
+  --surface-3: rgba(85, 38, 180, 0.10);
+
+  --text-0: #17102e;
+  --text-1: rgba(23, 16, 46, 0.72);
+  --text-2: rgba(23, 16, 46, 0.62);
+
+  --line: rgba(23, 16, 46, 0.10);
+  --line-strong: rgba(85, 38, 180, 0.28);
+
+  --brand-accent: #5526b4;
+  --brand-accent-hover: #6d24bb;
+
+  --theme-bg-alt: #f2f0f8;
+  --theme-input-bg: #ffffff;
+
+  --lv-card: #ffffff;
+  --lv-card-soft: #f7f6fb;
+
+  /* El recuadro de contraste se vuelve oscuro: es el mismo recurso, invertido. */
+  --lv-block: #140f2e;
+  --lv-block-text: #f6f4ff;
+  --lv-block-muted: rgba(246, 244, 255, 0.72);
+  --lv-block-line: rgba(246, 244, 255, 0.14);
+  --lv-block-accent: #b45cf0;
+  --lv-block-btn-bg: #ffffff;
+  --lv-block-btn-text: #17102e;
+  --lv-block-badge-bg: rgba(255, 255, 255, 0.08);
+
+  --lv-accent-fill: #5526b4;
+  --lv-accent-fill-hover: #6d24bb;
+  --lv-accent-text: #7c2bc9;
+
+  --lv-line: rgba(23, 16, 46, 0.10);
+  --lv-line-soft: rgba(23, 16, 46, 0.08);
+
+  --lv-shadow-card: 0 18px 44px -28px rgba(23, 16, 46, 0.30);
+  --lv-shadow-feature: 0 40px 90px -50px rgba(85, 38, 180, 0.35);
+
+  --lv-halo: rgba(169, 61, 232, 0.13);
 }

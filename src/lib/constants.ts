@@ -1,4 +1,4 @@
-// VoxAlly brand colors
+// AllyVox brand colors
 export const BRAND_COLOR = '#302289';         // Violeta profundo (primary)
 export const BRAND_COLOR_ACCENT = '#9138d5';  // Violeta eléctrico (accent)
 export const BRAND_COLOR_HOVER = '#1e1566';   // Darker purple for hover

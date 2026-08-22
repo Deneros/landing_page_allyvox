@@ -13,6 +13,7 @@ export function MobileMenu({ resourcesOpen, onToggleResources }: MobileMenuProps
 
   return (
     <div
+      id="mobile-menu"
       className="lg:hidden border-t transition-colors duration-300"
       style={{
         backgroundColor: bgColor,
@@ -23,7 +24,7 @@ export function MobileMenu({ resourcesOpen, onToggleResources }: MobileMenuProps
         <a
           href="/solutions"
           className="block px-3 py-2 rounded-lg text-base font-medium transition-all duration-200"
-          style={{ backgroundColor: secondaryBgColor, color: isActive('/solutions') ? '#9138d5' : textColor }}
+          style={{ backgroundColor: secondaryBgColor, color: isActive('/solutions') ? 'var(--brand-accent)' : textColor }}
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = hoverBgColor)}
           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = secondaryBgColor)}
         >
@@ -32,7 +33,7 @@ export function MobileMenu({ resourcesOpen, onToggleResources }: MobileMenuProps
         <a
           href="/pricing"
           className="block px-3 py-2 rounded-lg text-base font-medium transition-all duration-200"
-          style={{ backgroundColor: secondaryBgColor, color: isActive('/pricing') ? '#9138d5' : textColor }}
+          style={{ backgroundColor: secondaryBgColor, color: isActive('/pricing') ? 'var(--brand-accent)' : textColor }}
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = hoverBgColor)}
           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = secondaryBgColor)}
         >
@@ -41,7 +42,7 @@ export function MobileMenu({ resourcesOpen, onToggleResources }: MobileMenuProps
         <a
           href="/contact"
           className="block px-3 py-2 rounded-lg text-base font-medium transition-all duration-200"
-          style={{ backgroundColor: secondaryBgColor, color: isActive('/contact') ? '#9138d5' : textColor }}
+          style={{ backgroundColor: secondaryBgColor, color: isActive('/contact') ? 'var(--brand-accent)' : textColor }}
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = hoverBgColor)}
           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = secondaryBgColor)}
         >

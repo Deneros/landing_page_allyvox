@@ -53,7 +53,7 @@ export function Footer() {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-sm sm:text-base transition-colors duration-200 hover:text-[#9138d5]"
+                    className="text-sm sm:text-base transition-colors duration-200 hover:text-[var(--brand-accent)]"
                     style={{ color: mutedText }}
                   >
                     {link.label}
@@ -77,7 +77,7 @@ export function Footer() {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-sm sm:text-base transition-colors duration-200 hover:text-[#9138d5]"
+                    className="text-sm sm:text-base transition-colors duration-200 hover:text-[var(--brand-accent)]"
                     style={{ color: mutedText }}
                   >
                     {link.label}
@@ -101,7 +101,7 @@ export function Footer() {
                 <li key={index}>
                   <a
                     href={link.href}
-                    className="text-sm sm:text-base transition-colors duration-200 hover:text-[#9138d5]"
+                    className="text-sm sm:text-base transition-colors duration-200 hover:text-[var(--brand-accent)]"
                     style={{ color: mutedText }}
                   >
                     {link.label}

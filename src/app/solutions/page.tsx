@@ -148,7 +148,7 @@ export default function SolutionsPage() {
     <div style={{ backgroundColor: bgColor }}>
       {/* Hero Section */}
       <section className="relative isolate w-full py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <DotPattern color="#302289" accentColor="#9138d5" spacing={18} opacity={0.55} />
+        <DotPattern color="#302289" accentColor="#9138d5" spacing={18} opacity={0.19} />
         <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
           <ScrollReveal variant="fade-up">
             <h1
@@ -183,7 +183,7 @@ export default function SolutionsPage() {
           backgroundColor: altBgColor,
         }}
       >
-        <DotPattern color="#9138d5" accentColor="#2e8dff" spacing={20} opacity={0.4} />
+        <DotPattern color="#9138d5" accentColor="#2e8dff" spacing={20} opacity={0.14} />
         <div className="relative z-10 w-full max-w-7xl mx-auto">
           <ScrollReveal variant="fade-up">
             <div className="max-w-3xl mx-auto text-center mb-16">
@@ -296,7 +296,7 @@ export default function SolutionsPage() {
           backgroundColor: altBgColor,
         }}
       >
-        <DotPattern color="#302289" accentColor="#76f6f5" spacing={16} opacity={0.65} />
+        <DotPattern color="#302289" accentColor="#76f6f5" spacing={16} opacity={0.23} />
         <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
           <ScrollReveal variant="fade-up">
             <h2

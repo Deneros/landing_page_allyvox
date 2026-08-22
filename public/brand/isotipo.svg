@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 655.18 858.24">
+  <!-- Generator: Adobe Illustrator 30.0.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 123)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: url(#Degradado_sin_nombre_5);
+      }
+
+      .st1 {
+        fill: url(#Degradado_sin_nombre_270);
+      }
+    </style>
+    <linearGradient id="Degradado_sin_nombre_5" data-name="Degradado sin nombre 5" x1="309.66" y1="230.48" x2="309.66" y2="719.3" gradientUnits="userSpaceOnUse">
+      <stop offset=".29" stop-color="#a93de8" stop-opacity="0"/>
+      <stop offset=".38" stop-color="#a93de8" stop-opacity=".1"/>
+      <stop offset=".56" stop-color="#a93de8" stop-opacity=".37"/>
+      <stop offset=".81" stop-color="#a93de8" stop-opacity=".8"/>
+      <stop offset=".93" stop-color="#a93de8"/>
+    </linearGradient>
+    <linearGradient id="Degradado_sin_nombre_270" data-name="Degradado sin nombre 270" x1="65.33" y1="429.12" x2="589.84" y2="429.12" gradientUnits="userSpaceOnUse">
+      <stop offset=".24" stop-color="#5428b1"/>
+      <stop offset="1" stop-color="#5526b4"/>
+    </linearGradient>
+  </defs>
+  <path class="st0" d="M529.34,175.46l-212.81,567.9-6.12,6.12h-79.6l-6.12-6.12L89.98,388.21v-61.23l6.12-6.12h55.11l6.12,6.12,110.22,300.04h6.12L461.99,114.23l6.12-6.12h55.11l6.12,6.12v61.23Z"/>
+  <path class="st1" d="M589.84,113.75c0-13.61-11.03-24.64-24.64-24.64s-24.64,11.03-24.64,24.64c0,6.25,2.4,11.89,6.23,16.23l-230.26,613.37-6.12,6.12h-81.63l3.27-8.92,1.94-5.3,40.63-110.85,2.15-5.86,177.77-484.01c11.98-1.67,21.23-11.86,21.23-24.3,0-13.61-11.03-24.64-24.64-24.64s-24.64,11.03-24.64,24.64c0,6.3,2.43,11.98,6.32,16.34l-168.38,458.39-66.61-181.3c3.88-4.36,6.32-10.04,6.32-16.33,0-13.61-11.03-24.64-24.64-24.64s-24.64,11.03-24.64,24.64c0,12.44,9.25,22.63,21.24,24.3l76.02,206.94-30.66,83.65-112.99-297.89c3.78-4.33,6.15-9.93,6.15-16.13,0-13.61-11.03-24.64-24.64-24.64s-24.64,11.03-24.64,24.64c0,12.53,9.39,22.76,21.49,24.32l122.47,322.88-2.24,6.11c-2.6,7.1-1.57,15.02,2.76,21.22,4.33,6.2,11.41,9.89,18.97,9.89h81.63c6.14,0,12.03-2.44,16.37-6.78l6.12-6.12c2.34-2.34,4.15-5.16,5.31-8.26l230.26-613.39c12.04-1.62,21.36-11.83,21.36-24.31Z"/>
+</svg>

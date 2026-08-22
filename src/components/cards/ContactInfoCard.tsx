@@ -17,7 +17,7 @@ interface ContactInfoCardProps {
 export function ContactInfoCard({ items }: ContactInfoCardProps) {
   const { textColor, mutedText } = useLayout();
 
-  const iconBg = 'rgba(255,255,255,0.05)';
+  const iconBg = 'var(--surface-2)';
 
   const getIcon = (type: ContactInfoItem['type']) => {
     switch (type) {

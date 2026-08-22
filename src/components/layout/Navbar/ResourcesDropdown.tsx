@@ -12,7 +12,7 @@ export function ResourcesDropdown({ isOpen, onToggle, onClose }: ResourcesDropdo
     <div className="relative group">
       <button
         onClick={onToggle}
-        className="text-base font-medium flex items-center gap-2 transition-all duration-200 hover:text-[#9138d5] py-2"
+        className="text-base font-medium flex items-center gap-2 transition-all duration-200 hover:text-[var(--brand-accent)] py-2"
       >
         {t.nav.resources}
         <svg
@@ -133,7 +133,7 @@ export function ResourcesDropdown({ isOpen, onToggle, onClose }: ResourcesDropdo
                       <a
                         key={i}
                         href="#"
-                        className="block text-xs transition-colors duration-200 hover:text-[#9138d5]"
+                        className="block text-xs transition-colors duration-200 hover:text-[var(--brand-accent)]"
                         style={{ color: textColor }}
                       >
                         {item.l}

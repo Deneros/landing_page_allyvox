@@ -72,7 +72,7 @@ export function IndustryCard({ industry, index }: IndustryCardProps) {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = hoverBgColor;
-                e.currentTarget.style.borderColor = '#9138d5';
+                e.currentTarget.style.borderColor = 'var(--brand-accent)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = secondaryBgColor;
