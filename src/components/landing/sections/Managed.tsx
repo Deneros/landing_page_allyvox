@@ -122,7 +122,7 @@ function Constellation({ reduce }: { reduce: boolean }) {
       <div
         className="absolute left-1/2 top-1/2 flex w-[120px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-2xl border border-[var(--lv-block-line)] bg-white px-4 py-3 shadow-[0_18px_44px_-20px_rgba(85,38,180,0.55)] sm:w-[150px] md:w-[180px]"
       >
-        <Image src="/brand/allyvox.svg" alt="AllyVox" width={120} height={54} className="w-full" />
+        <Image src="/brand/voxally.svg" alt="VoxAlly" width={120} height={54} className="w-full" />
       </div>
     </div>
   );

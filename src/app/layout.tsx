@@ -28,25 +28,25 @@ const sourceSerif = Source_Serif_4({
 
 // TODO(dominio): cambiar metadataBase por el dominio real antes de publicar.
 export const metadata: Metadata = {
-  metadataBase: new URL('https://allyvox.com'),
+  metadataBase: new URL('https://voxally.com'),
   title: {
-    default: 'AllyVox | Agentes de voz con IA que atienden cada llamada',
-    template: '%s | AllyVox',
+    default: 'VoxAlly | Agentes de voz con IA que atienden cada llamada',
+    template: '%s | VoxAlly',
   },
   description:
-    'AllyVox atiende tus llamadas, WhatsApp y SMS con agentes de IA, califica cada prospecto y agenda la reunión en tu calendario. Con CRM y analítica integrados.',
-  applicationName: 'AllyVox',
+    'VoxAlly atiende tus llamadas, WhatsApp y SMS con agentes de IA, califica cada prospecto y agenda la reunión en tu calendario. Con CRM y analítica integrados.',
+  applicationName: 'VoxAlly',
   openGraph: {
     type: 'website',
-    siteName: 'AllyVox',
+    siteName: 'VoxAlly',
     locale: 'es_ES',
-    title: 'AllyVox | Agentes de voz con IA que atienden cada llamada',
+    title: 'VoxAlly | Agentes de voz con IA que atienden cada llamada',
     description:
       'Voz, WhatsApp y SMS atendidos por un solo agente de IA, con CRM y analítica integrados.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AllyVox | Agentes de voz con IA que atienden cada llamada',
+    title: 'VoxAlly | Agentes de voz con IA que atienden cada llamada',
     description:
       'Voz, WhatsApp y SMS atendidos por un solo agente de IA, con CRM y analítica integrados.',
   },

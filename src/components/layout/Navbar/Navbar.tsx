@@ -29,8 +29,8 @@ export function Navbar() {
         <div className="flex items-center gap-4 lg:gap-8 flex-1">
           <Link href="/" className="shrink-0">
             <Image
-              src="/logo-allyvox.svg"
-              alt="AllyVox Logo"
+              src="/logo-voxally.svg"
+              alt="VoxAlly Logo"
               width={160}
               height={72}
               priority

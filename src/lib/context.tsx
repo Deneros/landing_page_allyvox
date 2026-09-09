@@ -11,7 +11,7 @@ import {
 import { type Language } from './translations';
 
 const LANGUAGE_KEY = 'language';
-const LANGUAGE_EVENT = 'allyvox:language-change';
+const LANGUAGE_EVENT = 'voxally:language-change';
 /** Espanol es el idioma principal del producto; el ingles es la traduccion. */
 const DEFAULT_LANGUAGE: Language = 'es';
 

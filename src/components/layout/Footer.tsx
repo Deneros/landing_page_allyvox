@@ -24,8 +24,8 @@ export function Footer() {
         <div className="mb-8 sm:mb-12">
           <Link href="/">
             <Image
-              src="/logo-allyvox.svg"
-              alt="AllyVox Logo"
+              src="/logo-voxally.svg"
+              alt="VoxAlly Logo"
               width={128}
               height={57}
               className="w-auto h-8"

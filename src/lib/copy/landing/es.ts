@@ -13,7 +13,7 @@ export const es: LandingCopy = {
     description:
       'Un agente de IA atiende tus llamadas y mensajes, califica cada prospecto y agenda la reunión en tu calendario.',
     cta: 'Agendar demo',
-    imageAlt: 'Panel de AllyVox con el pipeline de conversaciones',
+    imageAlt: 'Panel de VoxAlly con el pipeline de conversaciones',
     floats: {
       live: 'Llamada en curso',
       caption: 'Calificando prospecto',
@@ -30,7 +30,7 @@ export const es: LandingCopy = {
   features: {
     title: { lead: 'Atiende, califica y agenda', accent: 'sin que intervengas' },
     description:
-      'AllyVox responde cada llamada y cada mensaje, puntúa al prospecto y lo mueve por tu pipeline solo.',
+      'VoxAlly responde cada llamada y cada mensaje, puntúa al prospecto y lo mueve por tu pipeline solo.',
     cards: [
       {
         title: 'Agentes de voz',
@@ -62,7 +62,7 @@ export const es: LandingCopy = {
         title: 'Integraciones',
         description: 'Conecta tu CRM, tu calendario y más de cien herramientas. API pública y webhooks.',
         image: '/placeholders/feature-integraciones.svg',
-        alt: 'Aplicaciones conectadas alrededor de AllyVox',
+        alt: 'Aplicaciones conectadas alrededor de VoxAlly',
       },
     ],
   },
@@ -99,7 +99,7 @@ export const es: LandingCopy = {
   },
 
   comparison: {
-    title: { lead: 'Por qué elegir', accent: 'AllyVox' },
+    title: { lead: 'Por qué elegir', accent: 'VoxAlly' },
     versus: 'V/S',
     others: {
       title: 'Otras plataformas',
@@ -113,7 +113,7 @@ export const es: LandingCopy = {
       ],
     },
     ours: {
-      title: 'AllyVox',
+      title: 'VoxAlly',
       items: [
         'Llamadas, WhatsApp y SMS con un solo agente, 24/7',
         'Una sola memoria: conoce al cliente en todos los canales',
@@ -127,14 +127,14 @@ export const es: LandingCopy = {
   },
 
   howItWorks: {
-    title: { lead: 'Cómo funciona', accent: 'AllyVox' },
+    title: { lead: 'Cómo funciona', accent: 'VoxAlly' },
     steps: [
       {
         num: '01',
         title: 'Conecta',
         description: 'Vincula tu número, WhatsApp y SMS. Enlaza tu calendario y tu CRM. Sin escribir código.',
         image: '/placeholders/paso-conecta.svg',
-        alt: 'Canales y herramientas conectándose a AllyVox',
+        alt: 'Canales y herramientas conectándose a VoxAlly',
       },
       {
         num: '02',
@@ -165,7 +165,7 @@ export const es: LandingCopy = {
         period: '/ mes',
         billing: 'facturación mensual',
         description:
-          'Nuestro paquete estándar. Proporciona lo mejor de lo que AllyVox puede hacer por tu equipo.',
+          'Nuestro paquete estándar. Proporciona lo mejor de lo que VoxAlly puede hacer por tu equipo.',
         cta: 'Comenzar',
         note: '',
         inherits: '',
@@ -228,11 +228,11 @@ export const es: LandingCopy = {
 
   demo: {
     badge: 'Demo',
-    title: { lead: 'Mira AllyVox', accent: 'por dentro' },
+    title: { lead: 'Mira VoxAlly', accent: 'por dentro' },
     description:
       'Un recorrido por el panel: cómo se crea un agente, cómo califica y cómo llena tu pipeline.',
     play: 'Ver la demo interactiva',
-    imageAlt: 'Panel de AllyVox con métricas por canal',
+    imageAlt: 'Panel de VoxAlly con métricas por canal',
   },
 
   faq: {

@@ -10,7 +10,7 @@
   --font-raleway: var(--font-raleway);
   --font-montserrat: var(--font-montserrat);
 
-  /* Marca AllyVox */
+  /* Marca VoxAlly */
   --brand: #302289;
   --brand-accent: #9138d5;
   --brand-accent-hover: #a453e2;
@@ -249,7 +249,7 @@ h1, h2, h3, h4, h5, h6 {
    Capa aditiva. Prefijo --lv- para no pisar los tokens heredados
    ni los alias heredados de precios, contacto y soluciones.
    Referencia de composicion: estructura y densidad de movimiento de una
-   landing de agentes de IA. Paleta y tipografia son las de AllyVox.
+   landing de agentes de IA. Paleta y tipografia son las de VoxAlly.
    ===================================================================== */
 :root {
   /* Escala de radios propia: mas grande que la home actual. */
