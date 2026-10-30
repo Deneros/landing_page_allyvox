@@ -25,7 +25,7 @@ export function Demo({ copy }: { copy: LandingCopy['demo'] }) {
           <div className="overflow-hidden rounded-t-[28px] border border-b-0 border-[var(--lv-block-line)] bg-white p-2 shadow-[0_-20px_60px_-40px_rgba(23,16,46,0.6)]">
             {/* TODO(imagenes): captura real del panel, 2160x1160. */}
             <Image
-              src="/placeholders/demo-panel.svg"
+              src="/product/demo-panel.webp"
               alt={copy.imageAlt}
               width={2160}
               height={1160}

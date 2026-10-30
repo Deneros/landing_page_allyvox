@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import type { FeatureCard, LandingCopy } from '@/lib/copy/landing';
 import { Heading, Section } from '../primitives';
 import { Rise, RiseGroup, RiseItem } from '../motion';
@@ -11,7 +10,14 @@ import { Rise, RiseGroup, RiseItem } from '../motion';
  * contenedor) para que se lea como una ventana a un producto que sigue mas
  * alla, en vez de como una miniatura centrada.
  */
-export function Features({ copy }: { copy: LandingCopy['features'] }) {
+export function Features({
+  copy,
+  ilustraciones,
+}: {
+  copy: LandingCopy['features'];
+  /** Una por tarjeta, en el mismo orden que copy.cards. */
+  ilustraciones: React.ReactNode[];
+}) {
   const [first, second, ...small] = copy.cards;
 
   return (
@@ -25,17 +31,17 @@ export function Features({ copy }: { copy: LandingCopy['features'] }) {
 
       <RiseGroup className="mt-14 grid gap-5 md:grid-cols-2" stagger={0.1}>
         <RiseItem>
-          <Card card={first} imageHeight={372} />
+          <Card card={first} imageHeight={372} ilustracion={ilustraciones[0]} />
         </RiseItem>
         <RiseItem>
-          <Card card={second} imageHeight={372} />
+          <Card card={second} imageHeight={372} ilustracion={ilustraciones[1]} />
         </RiseItem>
       </RiseGroup>
 
       <RiseGroup className="mt-5 grid gap-5 md:grid-cols-3" stagger={0.08}>
-        {small.map((card) => (
+        {small.map((card, i) => (
           <RiseItem key={card.title}>
-            <Card card={card} imageHeight={280} compact />
+            <Card card={card} imageHeight={280} compact ilustracion={ilustraciones[i + 2]} />
           </RiseItem>
         ))}
       </RiseGroup>
@@ -47,23 +53,17 @@ function Card({
   card,
   imageHeight,
   compact = false,
+  ilustracion,
 }: {
   card: FeatureCard;
   imageHeight: number;
   compact?: boolean;
+  ilustracion: React.ReactNode;
 }) {
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-[var(--lv-radius-card)] border border-[var(--lv-line)] bg-[var(--lv-card)] transition-colors duration-300 hover:border-[var(--line-strong)]">
       <div className="relative overflow-hidden" style={{ height: imageHeight }}>
-        {/* TODO(imagenes): reemplazar por captura real. La medida esta en el propio SVG. */}
-        <Image
-          src={card.image}
-          alt={card.alt}
-          width={1176}
-          height={744}
-          loading="lazy"
-          className="absolute left-6 top-6 w-[112%] max-w-none rounded-tl-[14px] transition-transform duration-500 ease-[var(--ease-out)] group-hover:-translate-y-1"
-        />
+        {ilustracion}
       </div>
 
       <div className={`flex flex-col gap-3 border-t border-[var(--lv-line-soft)] ${compact ? 'p-6' : 'p-7 md:p-8'}`}>

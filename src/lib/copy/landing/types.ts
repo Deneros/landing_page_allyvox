@@ -11,12 +11,15 @@ export interface Titled {
   accent: string;
 }
 
+/**
+ * Las tarjetas de funcionalidad no llevan imagen: se ilustran con los
+ * componentes de ilustraciones.tsx. Tres de las cinco (memoria, analisis,
+ * integraciones) no tienen pantalla que las represente, y capturar una tabla
+ * para ilustrar "memoria" no explica nada.
+ */
 export interface FeatureCard {
   title: string;
   description: string;
-  /** Ruta dentro de /public. Placeholder hasta que lleguen las capturas reales. */
-  image: string;
-  alt: string;
 }
 
 export interface PricingPlan {

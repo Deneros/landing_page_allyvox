@@ -74,7 +74,7 @@ export function Hero({ copy }: { copy: LandingCopy['hero'] }) {
           <div className="relative overflow-hidden rounded-t-[var(--lv-radius-frame)] border border-t-[var(--line-strong)] border-x-[var(--lv-line)] bg-[var(--lv-card)] p-2 shadow-[var(--lv-shadow-feature)]">
             {/* TODO(imagenes): sustituir por la captura real del panel, 1400x1080. */}
             <Image
-              src="/placeholders/hero-producto.svg"
+              src="/product/hero-producto.webp"
               alt={copy.imageAlt}
               width={1400}
               height={1080}
